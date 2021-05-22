@@ -25,10 +25,12 @@ body {
 header {
     background-color: var(--main-brand-color);
     color: rgba(255, 255, 255, 0.9);
+    padding-bottom:25px;
 }
 
 .headerContainer {
     text-align: center;
+    
 }
 
 main {
@@ -47,28 +49,51 @@ footer {
 
 #searchBar {
     border: solid 4px black;
-    border-radius: 8px;
+    border-radius: 16px 8px 8px 16px;
     padding: 15px;
     width: ;
 }
 
 #searchButton {
     background: black;
-    border-radius: 8px;
+    border-radius: 8px 16px 16px 8px;
     padding: 15px;
+    color: white;
+    width:105px;
 }
 
-.heading2{
+.heading2 {
     font-family: 'highvoltage' !important;
     color: #333;
-    padding:7px;
-    border-bottom:solid 3px rgb(225, 225, 225);
+    padding: 7px;
+    border-bottom: solid 3px rgb(225, 225, 225);
+}
+
+.bottomFooterLogo{
+    opacity:0.3;
+    margin:0 auto;
+    display:block;
 }
 
 @media only screen and (max-width: 600px) {
 
     #searchBar {
         width: 70%;
+    }
+
+    form{
+        border: solid 6px rgba(255,255,255,0.2);
+        border-radius:18px;
+        display:block;
+        width:82%;
+        margin:0 auto;
+        margin-top:20px;
+        padding:4px;
+
+    }
+
+    .bottomFooterLogo{
+        max-width:200px;
     }
 
 }

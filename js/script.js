@@ -1,5 +1,6 @@
 // OMDB MOVIE API KEY
 // OPEN WEATHER API KEY    9e2e79e449de63b165683ac1fcb83225
+// http://www.omdbapi.com/?apikey=[yourkey]&
 
 
 
