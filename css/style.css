@@ -1,5 +1,5 @@
 :root {
-    --main-bg-color: brown;
+    --main-brand-color: #FF005A;
 }
 
 @font-face {
@@ -13,7 +13,7 @@ body {
 }
 
 header {
-    background-color: #FC2C6A;
+    background-color: var(--main-brand-color);
     color: rgba(255, 255, 255, 0.9);
 }
 
@@ -24,10 +24,16 @@ main {
 
 
 footer {
-    background: black;
+    background: rgb(70, 70, 70);
 }
 
 .footerContainer{
     color:rgba(255,255,255,0.4);
     padding:30px;
+}
+
+#searchBar{
+    border:solid 4px black;
+    border-radius:8px;
+    padding 15px;
 }
