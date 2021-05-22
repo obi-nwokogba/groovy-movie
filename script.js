@@ -11,40 +11,37 @@
 let searchText;
 const apiBaseURL = "https://api.themoviedb.org/3/movie/550?api_key=0153dd9142cbca8ace6559209c3cf1aa";
 
-
-
-
-
 /*
+const trendingURL = "https://api.themoviedb.org/3/movie/550?api_key=0153dd9142cbca8ace6559209c3cf1aa/trending/{media_type}/{time_window}"*/
 
 
-const $location = $("#location");
-const $temperature = $("#temperature");
-const $feelslike = $("#feelslike");
-const $weather = $("#weather");
-const $longitudeLatitude = $("#longitudeLatitude");
+const $renderTitleBox = $("#renderTitleBox");
+const $renderYearBox = $("#renderYearBox");
+const $renderCastBox = $("#renderCastBox");
+
 
 function handleGetData(event) {
 
   event.preventDefault();
-  
-  searchText = $("#searchForm").val();
+  searchText = $("#searchBar").val();
+
+  alert("HI THERE");
 
   $.ajax({
-      url: `https://api.openweathermap.org/data/2.5/weather?q=${searchText}&appid=9e2e79e449de63b165683ac1fcb83225&units=imperial`,
+      url: `https://api.themoviedb.org/3/movie/550?api_key=0153dd9142cbca8ace6559209c3cf1aa`,
     })
     .then(
 
       function (returnedData) {
 
-        $(".outputSide").hide();
+        $renderTitleBox.text(returnedData["original_title"]);
 
-        //movieData = data;
-        $location.text(returnedData["name"]).fadeIn(6000);
-        $temperature.text(returnedData["main"]["temp"]).$fadeIn(6000);
-        $feelslike.text(returnedData["main"]["feels_like"]).fadeIn(6000);
 
-        $weather.text(returnedData["weather"][0]["description"]);
+
+        /*
+        $renderYearBox.text(returnedData["main"]["feels_like"]).fadeIn(6000);
+
+        $renderCastBox.text(returnedData["weather"][0]["description"]);
 
         $longitudeLatitude.text(returnedData["coord"]["lon"] + ", " + returnedData["coord"]["lat"]);
 
@@ -52,12 +49,8 @@ function handleGetData(event) {
         //document.getElementById("longitudeLatitude").innerText(returnedData["coord"]["lat"]);
 
         $('#outputSide').append("Max Temp: " + returnedData["main"]["temp_max"]);
+        */
       },
-
-
-
-
-
 
       function (error) {
         console.log("bad request: ", error);
@@ -75,12 +68,4 @@ function handleGetData(event) {
 
 
 
-
 $("form").on('submit', handleGetData);
-$(".outputSide").hide();
-
-
-
-
-
-*/

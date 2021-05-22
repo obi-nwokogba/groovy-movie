@@ -112,16 +112,15 @@ form {
     #searchBar {
         border: solid 3px #2A2A25;
         color: #2a2a25;
-        border-radius: 0px 0px 20px 16px;
+        border-radius: 20px 20px 0px 0px;
         padding: 15px;
         width: 100%;
     }
 
-
     #searchButton {
         background: #2A2A25;
         border-radius: 0px 0px 16px 16px;
-        padding: 15px;
+        padding: 12px;
         color: white;
         width: 105px;
         border: none;
@@ -129,13 +128,18 @@ form {
         opacity:0.9;
     }
 
+    #searchButton:active{
+        background:#ff2C7A;
+    }
+
     form {
-        border: solid 6px rgba(255, 255, 255, 0.2);
+        border: solid 5px rgba(255, 255, 255, 0.33);
         display: block;
         width: 82%;
         margin: 0 auto;
         margin-top: 20px;
         padding: 4px;
+        border-radius:26px;
 
     }
 
