@@ -14,6 +14,8 @@ html {
 body {
     background: rgb(60, 60, 60);
     height: 100%;
+    font-family: 'Newsreader', serif;
+    color: #2A2A25;
 }
 
 #mainLogo {
@@ -25,12 +27,12 @@ body {
 header {
     background-color: var(--main-brand-color);
     color: rgba(255, 255, 255, 0.9);
-    padding-bottom:25px;
+    padding-bottom: 25px;
 }
 
 .headerContainer {
     text-align: center;
-    
+
 }
 
 main {
@@ -45,21 +47,24 @@ footer {
 .footerContainer {
     color: rgba(255, 255, 255, 0.4);
     padding: 30px;
+    text-align: center;
 }
 
 #searchBar {
-    border: solid 4px black;
+    border: solid 4px #2A2A25;
+    color: #2a2a25;
     border-radius: 16px 8px 8px 16px;
     padding: 15px;
     width: ;
 }
 
 #searchButton {
-    background: black;
-    border-radius: 8px 16px 16px 8px;
+    background: #2A2A25;
+    /* border-radius: 20px 0px 20px 20px; */
     padding: 15px;
     color: white;
-    width:105px;
+    width: 105px;
+    border: none;
 }
 
 .heading2 {
@@ -69,31 +74,98 @@ footer {
     border-bottom: solid 3px rgb(225, 225, 225);
 }
 
-.bottomFooterLogo{
-    opacity:0.3;
-    margin:0 auto;
-    display:block;
+.bottomFooterLogo {
+    opacity: 0.3;
+    margin: 0 auto;
+    display: block;
 }
+
+.renderedText1 {
+    font-family: 'Newsreader', serif;
+}
+
+form {
+    margin: 0 auto;
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media only screen and (max-width: 600px) {
 
     #searchBar {
-        width: 70%;
+        border: solid 3px #2A2A25;
+        color: #2a2a25;
+        border-radius: 0px 0px 20px 16px;
+        padding: 15px;
+        width: 100%;
     }
 
-    form{
-        border: solid 6px rgba(255,255,255,0.2);
-        border-radius:18px;
-        display:block;
-        width:82%;
-        margin:0 auto;
-        margin-top:20px;
-        padding:4px;
+
+    #searchButton {
+        background: #2A2A25;
+        border-radius: 0px 0px 16px 16px;
+        padding: 15px;
+        color: white;
+        width: 105px;
+        border: none;
+        width: 100%;
+        opacity:0.9;
+    }
+
+    form {
+        border: solid 6px rgba(255, 255, 255, 0.2);
+        display: block;
+        width: 82%;
+        margin: 0 auto;
+        margin-top: 20px;
+        padding: 4px;
 
     }
 
-    .bottomFooterLogo{
-        max-width:200px;
+    .bottomFooterLogo {
+        max-width: 200px;
     }
 
 }
+
+
+/*
+@media only screen and (max-width: 400px) and {
+
+    #searchBar {
+        width: 100%;
+        display: block;
+    }
+
+    #searchButton {
+        width: 100%;
+    }
+
+    form {
+        border: solid 6px rgba(255, 255, 255, 0.2);
+        border-radius: 18px;
+        display: block;
+        width: 95%;
+        margin: 0 auto;
+        margin-top: 20px;
+        padding: 4px;
+
+    }
+}*/

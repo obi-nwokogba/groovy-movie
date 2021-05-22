@@ -2,16 +2,21 @@
 // OPEN WEATHER API KEY    9e2e79e449de63b165683ac1fcb83225
 // http://www.omdbapi.com/?apikey=[yourkey]&
 
+// THEMOVIEDB.org
+//https://api.themoviedb.org/3/movie/550?api_key=0153dd9142cbca8ace6559209c3cf1aa
 
 
 
+
+let searchText;
+const apiBaseURL = "https://api.themoviedb.org/3/movie/550?api_key=0153dd9142cbca8ace6559209c3cf1aa";
 
 
 
 
 
 /*
-let searchText;
+
 
 const $location = $("#location");
 const $temperature = $("#temperature");

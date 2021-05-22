@@ -8,7 +8,7 @@ A web app for exploring the world of Cinema.
 - CSS3
 - Javascript/jQuery
 - Bootstrap
-- [SpaceX API](https://docs.spacexdata.com)
+- [TMDB API - The Movie DB](http://themoviedb.org/settings/api)
 
 ## Screenshots
 
