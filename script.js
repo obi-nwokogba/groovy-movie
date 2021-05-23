@@ -39,7 +39,7 @@ function handleGetData(event) {
                 let releaseDate = returnedData["release_date"];
                 $renderYearBox.text(releaseDate.substring(0, 4));
 
-                $renderIMDBRating.text(returnedData["vote_average"]);
+                $renderIMDBRatingBox.text(returnedData["vote_average"]);
 
                 $renderGenreBox.text(returnedData["genres"][0]["name"]);
 
@@ -48,16 +48,6 @@ function handleGetData(event) {
 
 
                 $renderOverviewBox.text(returnedData["overview"]);
-
-                /*                         
-                 $renderCastBox.text(returnedData["weather"][0]["description"]);
-                 $longitudeLatitude.text(returnedData["coord"]["lon"] + ", " + returnedData["coord"]["lat"]);
-                 
-                 $(".outputSide").show();
-                 //document.getElementById("longitudeLatitude").innerText(returnedData["coord"]["lat"]);
-                 
-                 $('#outputSide').append("Max Temp: " + returnedData["main"]["temp_max"]);
-                 */
             },
             function (error) {
                 console.log("bad request: ", error);
