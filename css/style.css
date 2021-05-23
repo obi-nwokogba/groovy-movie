@@ -1,5 +1,6 @@
 :root {
     --main-brand-color: #FF005A;
+    --main-main-dark: #FF005A;
 }
 
 @font-face {
@@ -38,6 +39,11 @@ header {
 main {
     background: #e3e3e3;
     color: rgb(42, 42, 42);
+    padding: 20px;
+}
+
+.mainContainer {
+    padding: 10px;
 }
 
 footer {
@@ -70,8 +76,15 @@ footer {
 .heading2 {
     font-family: 'highvoltage' !important;
     color: #333;
-    padding: 7px;
-    border-bottom: solid 3px rgb(225, 225, 225);
+    padding: 2px;
+    border-bottom: solid 3px rgba(182, 182, 182, 0.3);
+    margin-bottom: 1px;
+}
+
+p.renderedText1 {
+    font-family: 'Newsreader', serif;
+    font-size: 23px;
+    padding: 0px !important;
 }
 
 .bottomFooterLogo {
@@ -80,13 +93,41 @@ footer {
     display: block;
 }
 
-.renderedText1 {
-    font-family: 'Newsreader', serif;
-}
+
 
 form {
     margin: 0 auto;
     display: block;
+    text-align: center;
+
+    border: solid 5px rgba(255, 255, 255, 0.33);
+    display: block;
+    width: 530px;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 4px;
+    border-radius: 26px;
+}
+
+#searchBar {
+    width: 400px;
+    border-radius: 15px 0px 0px 15px;
+}
+
+#searchBar:active {
+    border-radius: 15px 0px 0px 15px;
+    border: none;
+}
+
+#searchButton {
+    border-radius: 0px 15px 15px 0px;
+    height: 62px;
+    margin-left: -5px;
+}
+
+#searchButton:active {
+    background: #ff2C7A;
+    border: solid 2px;
 }
 
 
@@ -125,11 +166,12 @@ form {
         width: 105px;
         border: none;
         width: 100%;
-        opacity:0.9;
+        opacity: 0.9;
     }
 
-    #searchButton:active{
-        background:#ff2C7A;
+    #searchButton:active {
+        background: #ff2C7A;
+        border: solid 2px;
     }
 
     form {
@@ -139,12 +181,16 @@ form {
         margin: 0 auto;
         margin-top: 20px;
         padding: 4px;
-        border-radius:26px;
+        border-radius: 26px;
 
     }
 
     .bottomFooterLogo {
         max-width: 200px;
+    }
+
+    p.heading2 {
+        font-size:40px;
     }
 
 }
@@ -173,3 +219,23 @@ form {
 
     }
 }*/
+
+
+.headerContainer{
+    width:100%;
+    margin:0;
+    padding:10px;
+}
+
+header{
+    padding:0px !important;
+    width:100%;
+    margin:0px;
+}
+
+.headerGradient {
+    background: #FF005B;
+    background: -webkit-radial-gradient(bottom, #FF005B, #A90545);
+    background: -moz-radial-gradient(bottom, #FF005B, #A90545);
+    background: radial-gradient(to top, #FF005B, #A90545);
+}

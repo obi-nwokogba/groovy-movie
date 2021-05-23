@@ -1,71 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>
-        Groovy Movie - Movie Reviews, Ratings, Directors, Actors, Actresses, Series, Cinematography, Recommendations
-        - Film
-    </title>
+    <head>
+        <meta charset="utf-8">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>
+            Groovy Movie - Movie Reviews, Ratings, Directors, Actors, Actresses, Series, Cinematography, Recommendations
+            - Film
+        </title>
 
-    <link href="./css/style.css" rel="stylesheet">
-    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
-        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" rel="stylesheet">
+        <link href="./css/style.css" rel="stylesheet">
+        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+              integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" rel="stylesheet">
 
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.js">
-    </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.js">
+        </script>
 
-    <script crossorigin="anonymous" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js">
-    </script>
+        <script crossorigin="anonymous" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+                src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js">
+        </script>
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600&display=swap"
-        rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600&display=swap"
+            rel="stylesheet">
 
-    <script src="script.js">
-    </script>
-</head>
+        <script src="script.js" defer>
+        </script>
+    </head>
+    <body>
+        <header>
+            <div class="headerGradient headerContainer">
 
-<body>
-    <header>
-        <div class="container">
+                <img src="img/groovy_movie_logo_small.png" alt="Goovy Movie Logo" id="mainLogo">
+                <form>
+                    <input id="searchBar" type="text" />
+                    <input id="searchButton" type="submit" value="search" />
+                </form>
 
-            <img src="img/groovy_movie_logo_small.png" alt="Goovy Movie Logo" id="mainLogo">
+            </div>
+        </header>
+        <main>
+
+            <div class="container mainContainer">
+
+                <div id="moveImageBox1"></div>
+                <p class="heading2">Movie Title</p>
+                <p id="renderTitleBox" class="renderedText1">Movie Title</p>
+
+                <p class="heading2">Year</p>
+                <p id="renderYearBox" class="renderedText1">Movie Title</p>
+
+                <p class="heading2">IMDB Rating</p>
+                <p id="renderIMDBRating" class="renderedText1"></p </div> 
+        </main> 
 
 
-            <form>
-                <input id="searchBar" type="text">
-                <input id="searchButton" type="button" value="search">
-                </input>
-                </input>
-            </form>
-        </div>
-    </header>
-    <main>
-        <div class="container mainContainer">
-
-            <p class="heading2">Movie Title</p>
-            <p id="renderTitleBox" class="renderedText1">Movie Title</p>
-
-            <p class="heading2">Year</p>
-            <p id="renderYearBox" class="renderedText1">Movie Title</p>
-
-            <p class="heading2">Cast</p>
-            <p id="renderCastBox" class="renderedText1">Movie Title</p </div> </main> <footer>
+        <footer>
             <div class="container footerContainer">
-
-
                 <img src="img/groovy_movie_logo_small.png" alt="Groovy Movie" class="bottomFooterLogo">
 
                 © 2021 Groovy Movie<br /><small>Obi Nwokogba</small>
 
                 <br /> <br />
             </div>
-            </footer>
-</body>
+        </footer>
+    </body>
 
 </html>

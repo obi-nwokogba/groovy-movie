@@ -1,71 +1,63 @@
 // OMDB MOVIE API KEY
-// OPEN WEATHER API KEY    9e2e79e449de63b165683ac1fcb83225
 // http://www.omdbapi.com/?apikey=[yourkey]&
 
 // THEMOVIEDB.org
 //https://api.themoviedb.org/3/movie/550?api_key=0153dd9142cbca8ace6559209c3cf1aa
 
-
-
-
 let searchText;
 const apiBaseURL = "https://api.themoviedb.org/3/movie/550?api_key=0153dd9142cbca8ace6559209c3cf1aa";
 
-/*
-const trendingURL = "https://api.themoviedb.org/3/movie/550?api_key=0153dd9142cbca8ace6559209c3cf1aa/trending/{media_type}/{time_window}"*/
-
-
 const $renderTitleBox = $("#renderTitleBox");
 const $renderYearBox = $("#renderYearBox");
-const $renderCastBox = $("#renderCastBox");
+const $renderIMDBRating = $("#renderIMDBRating");
+const $moveImageBox1 = $("#moveImageBox1");
 
+/*
+ const trendingURL = "https://api.themoviedb.org/3/movie/550?api_key=0153dd9142cbca8ace6559209c3cf1aa/trending/{media_type}/{time_window}"*/
+
+
+
+//alert("line 22");
 
 function handleGetData(event) {
 
-  event.preventDefault();
-  searchText = $("#searchBar").val();
+    event.preventDefault();
 
-  alert("HI THERE");
+    searchText = $("#searchBar").val();
 
-  $.ajax({
-      url: `https://api.themoviedb.org/3/movie/550?api_key=0153dd9142cbca8ace6559209c3cf1aa`,
+    $.ajax({
+        url: `https://api.themoviedb.org/3/movie/550?api_key=0153dd9142cbca8ace6559209c3cf1aa`,
     })
-    .then(
+            .then(
+                    function (returnedData) {
 
-      function (returnedData) {
+                        let returnedBackdropImage = returnedData["backdrop_path"];
 
-        $renderTitleBox.text(returnedData["original_title"]);
+                        //console.log(returnedData);
+                        $renderTitleBox.text(returnedData["original_title"]);
 
+                        let releaseDate = returnedData["release_date"];
+                        $renderYearBox.text(releaseDate.substring(0, 4));
 
+                        $renderIMDBRating.text(returnedData["vote_average"]);
 
-        /*
-        $renderYearBox.text(returnedData["main"]["feels_like"]).fadeIn(6000);
+                        // Display an Image
+                        $moveImageBox1.text(`<img src="${apiBaseURL}${returnedBackdropImage}" alt="movie poster" />`);
 
-        $renderCastBox.text(returnedData["weather"][0]["description"]);
-
-        $longitudeLatitude.text(returnedData["coord"]["lon"] + ", " + returnedData["coord"]["lat"]);
-
-        $(".outputSide").show();
-        //document.getElementById("longitudeLatitude").innerText(returnedData["coord"]["lat"]);
-
-        $('#outputSide').append("Max Temp: " + returnedData["main"]["temp_max"]);
-        */
-      },
-
-      function (error) {
-        console.log("bad request: ", error);
-      }
-
-
-
-
-    );
+                        /*                         
+                         $renderCastBox.text(returnedData["weather"][0]["description"]);
+                         $longitudeLatitude.text(returnedData["coord"]["lon"] + ", " + returnedData["coord"]["lat"]);
+                         
+                         $(".outputSide").show();
+                         //document.getElementById("longitudeLatitude").innerText(returnedData["coord"]["lat"]);
+                         
+                         $('#outputSide').append("Max Temp: " + returnedData["main"]["temp_max"]);
+                         */
+                    },
+                    function (error) {
+                        console.log("bad request: ", error);
+                    }
+            );
 }
-
-
-
-
-
-
 
 $("form").on('submit', handleGetData);
