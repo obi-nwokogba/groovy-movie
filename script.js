@@ -4,24 +4,20 @@
 // THEMOVIEDB.org
 //https://api.themoviedb.org/3/movie/550?api_key=0153dd9142cbca8ace6559209c3cf1aa
 
-let searchText;
+let searchText, trendingString;
+
 const apiBaseURL = "https://api.themoviedb.org/3/movie/550?api_key=0153dd9142cbca8ace6559209c3cf1aa";
-
 const apiBasicURL = "https://api.themoviedb.org/3/movie/550?api_key=0153dd9142cbca8ace6559209c3cf1aa";
-
 
 const $renderTitleBox = $("#renderTitleBox");
 const $renderYearBox = $("#renderYearBox");
-const $renderIMDBRating = $("#renderIMDBRating");
+const $renderIMDBRatingBox = $("#renderIMDBRatingBox");
 const $moveImageBox1 = $("#moveImageBox1");
 const $renderOverviewBox = $("#renderOverviewBox");
+const $renderGenreBox = $("#renderGenreBox");
+const $trendingBox = $("#trendingBox");
 
-/*
- const trendingURL = "https://api.themoviedb.org/3/movie/550?api_key=0153dd9142cbca8ace6559209c3cf1aa/trending/{media_type}/{time_window}"*/
-
-
-
-//alert("line 22");
+const trendingURL = `https://api.themoviedb.org/3/movie/550?api_key=0153dd9142cbca8ace6559209c3cf1aa/trending/{media_type}/{time_window}`;
 
 function handleGetData(event) {
 
@@ -44,6 +40,8 @@ function handleGetData(event) {
                         $renderYearBox.text(releaseDate.substring(0, 4));
 
                         $renderIMDBRating.text(returnedData["vote_average"]);
+
+                        $renderGenreBox.text(returnedData["genres"][0]["name"]);
 
                         // Display an Image
                         $moveImageBox1.html(`<img class="mainMovieImage" src="https://image.tmdb.org/t/p/w500${returnedBackdropImage}" alt="movie poster" />`);
@@ -68,49 +66,38 @@ function handleGetData(event) {
 }
 
 
+function getTrending(event) {
 
-function handleGetData(event) {
+    let currentTrendingTitle;
 
-  event.preventDefault();
+    $.ajax({
+        url: `https://api.themoviedb.org/3/trending/all/week?api_key=0153dd9142cbca8ace6559209c3cf1aa`,
+    })
+            .then(
+                    function (returnedData) {
 
-  searchText = $("#searchBar").val();
+                        currentTrendingTitle = returnedData["results"][i]["title"];
 
-  $.ajax({
-      url: `https://api.themoviedb.org/3/movie/550?api_key=0153dd9142cbca8ace6559209c3cf1aa`,
-  })
-          .then(
-                  function (returnedData) {
+                        $trendingBox.text(returnedData["results"][0]['title']);
 
-                      let returnedBackdropImage = returnedData["backdrop_path"];
+                        for (i = 0; i < 17; i++) {
+                            currentTrendingTitle = returnedData["results"][i]["title"];
 
-                      //console.log(returnedData);
-                      $renderTitleBox.text(returnedData["original_title"]);
+                            // This check is made because I noticed that occasionally the JSON returns undefined titles.
+                            if (currentTrendingTitle != undefined) {
+                                console.log(returnedData["results"][i]["title"]);
+                            }
+                        }
 
-                      let releaseDate = returnedData["release_date"];
-                      $renderYearBox.text(releaseDate.substring(0, 4));
-
-                      $renderIMDBRating.text(returnedData["vote_average"]);
-
-                      // Display an Image
-                      $moveImageBox1.html(`<img class="mainMovieImage" src="https://image.tmdb.org/t/p/w500${returnedBackdropImage}" alt="movie poster" />`);
-
-
-                      $renderOverviewBox.text(returnedData["overview"]);
-
-                      /*                         
-                       $renderCastBox.text(returnedData["weather"][0]["description"]);
-                       $longitudeLatitude.text(returnedData["coord"]["lon"] + ", " + returnedData["coord"]["lat"]);
-                       
-                       $(".outputSide").show();
-                       //document.getElementById("longitudeLatitude").innerText(returnedData["coord"]["lat"]);
-                       
-                       $('#outputSide').append("Max Temp: " + returnedData["main"]["temp_max"]);
-                       */
-                  },
-                  function (error) {
-                      console.log("bad request: ", error);
-                  }
-          );
+                    },
+                    function (error) {
+                        console.log("bad request: ", error);
+                    }
+            );
 }
 
+
 $("form").on('submit', handleGetData);
+
+// Lets start by showing whats popular
+getTrending();

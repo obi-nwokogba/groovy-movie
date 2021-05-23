@@ -57,7 +57,7 @@ footer {
 }
 
 #searchBar {
-    border: solid 4px #2A2A25;
+    border: solid 4px rgba(41, 41, 36, 0.6);
     color: #2a2a25;
     border-radius: 16px 8px 8px 16px;
     padding: 15px;
@@ -116,9 +116,9 @@ form {
     margin: 0 auto;
     display: block;
     text-align: center;
-    border: solid 5px rgba(255, 255, 255, 0.33);
+    border: solid 4px rgba(255, 255, 255, 0.33);
     display: block;
-    width: 530px;
+    width: 523x;
     margin: 0 auto;
     margin-top: 20px;
     padding: 4px;
@@ -128,16 +128,18 @@ form {
 #searchBar {
     width: 400px;
     border-radius: 15px 0px 0px 15px;
+    height:50px;
 }
 
 #searchBar:active {
     border-radius: 15px 0px 0px 15px;
     border: none;
+
 }
 
 #searchButton {
     border-radius: 0px 15px 15px 0px;
-    height: 62px;
+    height: 50px;
     margin-left: -5px;
 }
 
@@ -164,34 +166,39 @@ form {
 
 }
 
-
 .mainMovieImage{
     max-width:90vw;
 }
 
 
+#trendingBox{
+    background-color:#444444;
+    font-family: 'highvoltage';
+}
+
+
+
+
+
 
 /* MOBILE */
-
-
 @media only screen and (max-width: 600px) {
 
     #searchBar {
-        border: solid 3px #2A2A25;
+        border: solid 2px rgb(42, 42, 37, 0.9);
         color: #2a2a25;
-        border-radius: 20px 20px 0px 0px;
+        border-radius: 20px 0px 0px 20px;
         padding: 15px;
-        width: 100%;
+        width: 70%;
     }
 
     #searchButton {
-        background: #2A2A25;
-        border-radius: 0px 0px 16px 16px;
+        background: rgb(42 42 37 / 71%);
+        border-radius: 0px 16px 16px 0px;
         padding: 12px;
         color: white;
-        width: 105px;
+        width: 80px;
         border: none;
-        width: 100%;
         opacity: 0.9;
     }
 
@@ -201,14 +208,14 @@ form {
     }
 
     form {
-        border: solid 5px rgba(255, 255, 255, 0.33);
+        border: solid 4px rgba(255, 255, 255, 0.43);
         display: block;
-        width: 82%;
+        width: 79%;
         margin: 0 auto;
-        margin-top: 20px;
-        padding: 4px;
+        margin-top: -9px;
+        padding: 4px 2px 4px 2px;
         border-radius: 26px;
-
+        margin-bottom:20px;
     }
 
     .bottomFooterLogo {
@@ -218,34 +225,7 @@ form {
     p.heading2 {
         font-size: 40px;
     }
-
 }
-
-
-/*
-@media only screen and (max-width: 400px) and {
-
-    #searchBar {
-        width: 100%;
-        display: block;
-    }
-
-    #searchButton {
-        width: 100%;
-    }
-
-    form {
-        border: solid 6px rgba(255, 255, 255, 0.2);
-        border-radius: 18px;
-        display: block;
-        width: 95%;
-        margin: 0 auto;
-        margin-top: 20px;
-        padding: 4px;
-
-    }
-}*/
-
 
 .headerContainer {
     width: 100%;
