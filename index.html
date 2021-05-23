@@ -1,92 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="utf-8">
-        <meta content="IE=edge" http-equiv="X-UA-Compatible">
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <title>
-            Groovy Movie - Movie Reviews, Ratings, Directors, Actors, Actresses, Series, Cinematography, Recommendations
-            - Film
-        </title>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>
+        Groovy Movie - Movie Reviews, Ratings, Directors, Actors, Actresses, Series, Cinematography, Recommendations
+        - Film
+    </title>
 
-        <link href="./css/style.css" rel="stylesheet">
-        <link crossorigin="anonymous" href="./css/bootstrap.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <link crossorigin="anonymous" href="./css/bootstrap.css" rel="stylesheet">
 
-        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.js">
-        </script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.js">
+    </script>
 
-        <script crossorigin="anonymous" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-                src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js">
-        </script>
+    <script crossorigin="anonymous" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js">
+    </script>
 
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link
-            href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600&display=swap"
-            rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600&display=swap"
+        rel="stylesheet">
 
-        <script src="script.js" defer>
-        </script>
-    </head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap"
+        rel="stylesheet">
 
-    <body>
-        <header>
-            <div id="trendingBox">TRENDING</div>
+    <script src="script.js" defer>
+    </script>
+</head>
 
-            <div class="headerGradient headerContainer">
+<body>
+    <header>
+        <div id="trendingBox">TRENDING</div>
 
-                <img
-                    src="img/svg_square_white_logo.svg"
-                    alt="Groovy Movie Logo"
-                    height="187"
-                    width="187" />
+        <div class="headerGradient headerContainer">
+
+            <img src="img/svg_square_white_logo.svg" alt="Groovy Movie Logo" height="187" width="187" />
 
 
-                <form>
-                    <input id="searchBar" type="text" />
-                    <input id="searchButton" type="submit" value="search" />
-                </form>
+            <form>
+                <input id="searchBar" type="text" />
+                <input id="searchButton" type="submit" value="search" />
+            </form>
 
-            </div>
-        </header>
-        <main>
-            <div class="container mainContainer">
+        </div>
+    </header>
+    <main>
+        <div class="container mainContainer">
 
-                <div id="moveImageBox1"></div>
+            <div id="moveImageBox1"></div>
 
-                <h1 class="majorHeading" id="renderTitleBox"></h1>
+            <h1 class="majorHeading" id="renderTitleBox"></h1>
 
-                <div class="quickStatsContainer">
-                    <div id="imdbContainer">
-                        <p class="quickStatsHeading">Year</p>
-                        <p id="renderYearBox" class="renderedText1"></p>
-                    </div>
-
-                    <div id="ratingContainer">
-                        <p class="quickStatsHeading">IMDB Rating</p>
-                        <p id="renderIMDBRatingBox" class="renderedText1"></p>
-                    </div>
-
-                    <div id="genreContainer">
-                        <p class="quickStatsHeading">Genre</p>
-                        <p id="renderGenreBox" class="renderedText1"></p>
-                    </div>
+            <div class="quickStatsContainer">
+                <div id="imdbContainer">
+                    <p class="quickStatsHeading">Year</p>
+                    <p id="renderYearBox" class="renderedText1"></p>
                 </div>
 
-                <p class="heading2">Summary</p>
-                <p id="renderOverviewBox" class="renderedText1"></p>
-            </div>
-        </main>
-        <footer>
-            <div class="container footerContainer">
-                <img src="img/groovy_movie_logo_small.png" alt="Groovy Movie" class="bottomFooterLogo" />
+                <div id="ratingContainer">
+                    <p class="quickStatsHeading">IMDB Rating</p>
+                    <p id="renderIMDBRatingBox" class="renderedText1"></p>
+                </div>
 
-                <br /><small>© 2021 Groovy Movie<br />Obi Nwokogba <br />
-                    Last updated<br />Sat May 22 2021, 11pm</small>
-
-                <br /> <br />
+                <div id="genreContainer">
+                    <p class="quickStatsHeading">Genre</p>
+                    <p id="renderGenreBox" class="renderedText1"></p>
+                </div>
             </div>
-        </footer>
-    </body>
+
+            <p class="heading2">Summary</p>
+            <p id="renderOverviewBox" class="renderedText1"></p>
+        </div>
+    </main>
+    <footer>
+        <div class="container footerContainer">
+            <img src="img/groovy_movie_logo_small.png" alt="Groovy Movie" class="bottomFooterLogo" />
+
+            <br /><small>© 2021 Groovy Movie<br />Obi Nwokogba <br />
+                Last updated<br />Sat May 22 2021, 11pm</small>
+
+            <br /> <br />
+        </div>
+    </footer>
+</body>
 
 </html>
