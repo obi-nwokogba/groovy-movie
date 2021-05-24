@@ -4,7 +4,7 @@
 // THEMOVIEDB.org
 //https://api.themoviedb.org/3/movie/550?api_key=0153dd9142cbca8ace6559209c3cf1aa
 
-let searchText, trendingString;
+let searchText, trendingString, trendingString2;
 
 const apiBaseURL = "https://api.themoviedb.org/3/movie/550?api_key=0153dd9142cbca8ace6559209c3cf1aa";
 const apiBasicURL = "https://api.themoviedb.org/3/movie/550?api_key=0153dd9142cbca8ace6559209c3cf1aa";
@@ -75,6 +75,8 @@ function getTrending(event) {
 
                     if (currentTrendingTitle === "undefined") {
                         //alert('Variable "comment" is undefined.');
+                    } else if (currentTrendingTitle === undefined) {
+                        //alert('Variable "comment" is null.');
                     } else if (currentTrendingTitle === null) {
                         //alert('Variable "comment" is null.');
                     } else {
@@ -103,6 +105,8 @@ getTrending();
 
 function renderTrendingPage() {
 
+    trendingString2 = "";
+
     let currentTrendingTitle;
 
     $.ajax({
@@ -112,27 +116,42 @@ function renderTrendingPage() {
             function (returnedData) {
 
                 // Clear the page
-                $pageContent.html();
+                $pageContent.html(" ");
 
                 for (i = 0; i < 17; i++) {
                     currentTrendingTitle = returnedData["results"][i]["title"];
 
+                    if (i == 0) {
+                        alert(currentTrendingTitle);
+                    }
+
                     // This check is made because I noticed that occasionally the JSON returns undefined titles.
-                    if (currentTrendingTitle === "undefined") {
+                    if (currentTrendingTitle === 'undefined') {
                         //alert('Variable "comment" is undefined.');
                     } else if (currentTrendingTitle === null) {
                         //alert('Variable "comment" is null.');
-                    } 
-                    else if (currentTrendingTitle == undefined) {
+                    } else if (currentTrendingTitle == undefined) {
                         //alert('Variable "comment" is null.');
+                    } else {
+
                     }
-                    else {
-                        trendingString = trendingString + " &bull; " + currentTrendingTitle;
-                        console.log(returnedData["results"][i]["title"]);
+
+                    //alert(typeof trendingString);
+
+
+                    if (typeof trendingString === 'undefined') {
+                        alert("one undefined found!");
+                    } else {
+
+                        trendingString2 = trendingString2 + " &bull; " + currentTrendingTitle;
+                       
+
                     }
+
+
                 }
-                $pageContent.html(``);
-                $pageContent.html(`<p class="renderedText">${trendingString}</p>`);
+
+                $pageContent.html(`<p class="renderedText">${trendingString2}</p>`);
             },
             function (error) {
                 console.log("bad request: ", error);
