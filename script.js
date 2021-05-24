@@ -60,6 +60,18 @@ function handleGetData(event) {
 function getTrending(event) {
 
     let currentTrendingTitle;
+    trendingString1Start = `<div class="container">
+    <div class="marquee-sibling"> Breaking News </div>
+    <div class="marquee">
+      <ul class="marquee-content-items">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>`;
+
+    let trendingString1End = ` </ul></div></div>`;
+
 
     $.ajax({
             url: `https://api.themoviedb.org/3/trending/all/week?api_key=0153dd9142cbca8ace6559209c3cf1aa`,
@@ -80,7 +92,7 @@ function getTrending(event) {
                     } else if (currentTrendingTitle === null) {
                         //alert('Variable "comment" is null.');
                     } else {
-                        trendingString = trendingString + " &bull; " + currentTrendingTitle;
+                        trendingString = trendingString + " <li>" + currentTrendingTitle + "</li>";
                         console.log(returnedData["results"][i]["title"]);
                     }
                 }
@@ -107,7 +119,7 @@ function renderTrendingPage() {
 
     trendingString2 = "";
 
-    let currentTrendingTitle;
+    let currentTrendingTitle, currentVoteAverage;
 
     $.ajax({
             url: `https://api.themoviedb.org/3/trending/all/week?api_key=0153dd9142cbca8ace6559209c3cf1aa`,
@@ -120,21 +132,9 @@ function renderTrendingPage() {
 
                 for (i = 0; i < 17; i++) {
                     currentTrendingTitle = returnedData["results"][i]["title"];
+                    currentVoteAverage = returnedData["results"]["0"]["vote_average"];
 
-                    if (i == 0) {
-                        alert(currentTrendingTitle);
-                    }
 
-                    // This check is made because I noticed that occasionally the JSON returns undefined titles.
-                    if (currentTrendingTitle === 'undefined') {
-                        //alert('Variable "comment" is undefined.');
-                    } else if (currentTrendingTitle === null) {
-                        //alert('Variable "comment" is null.');
-                    } else if (currentTrendingTitle == undefined) {
-                        //alert('Variable "comment" is null.');
-                    } else {
-
-                    }
 
                     //alert(typeof trendingString);
 
@@ -144,11 +144,9 @@ function renderTrendingPage() {
                     } else {
 
                         trendingString2 = trendingString2 + " &bull; " + currentTrendingTitle;
-                       
+
 
                     }
-
-
                 }
 
                 $pageContent.html(`<p class="renderedText">${trendingString2}</p>`);

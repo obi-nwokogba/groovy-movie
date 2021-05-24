@@ -12,21 +12,12 @@ html {
     background: rgb(60, 60, 60);
 }
 
-
-@charset "UTF-8";
-
-/*!
- * Bootstrap v5.0.1 (https://getbootstrap.com/)
- * Copyright 2011-2021 The Bootstrap Authors
- * Copyright 2011-2021 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
 :root {
     --bs-blue: #0d6efd;
     --bs-indigo: #6610f2;
     --bs-purple: #6f42c1;
     --bs-pink: #d63384;
-    --bs-red: #dc3545;
+    --bs-red: #FF005A;
     --bs-orange: #fd7e14;
     --bs-yellow: #ffc107;
     --bs-green: #198754;
@@ -156,9 +147,9 @@ footer {
 
 p.renderedText1 {
     font-family: 'Newsreader', serif;
-    font-size: 22px;
+    font-size: 24px;
     padding: 0px !important;
-    line-height: 1.2em;
+    line-height: 1.3em;
 }
 
 .bottomFooterLogo {
@@ -313,4 +304,72 @@ header {
     background: -webkit-radial-gradient(bottom, #FF005B, #A90545);
     background: -moz-radial-gradient(bottom, #FF005B, #A90545);
     background: radial-gradient(to top, #FF005B, #A90545);
+}
+
+
+
+/* MARQUEE STYLES FROM */
+
+
+.container {
+    02 width: 100%;
+    03 background: #4FC2E5;
+    04 float: left;
+    05 display: inline-block;
+    06 overflow: hidden;
+    07 box-sizing: border-box;
+    08 height: 45px;
+    09 position: relative;
+    10 cursor: pointer;
+    11
+}
+
+12 13 .marquee-sibling {
+    14 padding: 0;
+    15 background: #3BB0D6;
+    16 width: 20%;
+    17 height: 45px;
+    18 line-height: 42px;
+    19 font-size: 12px;
+    20 font-weight: normal;
+    21 color: #ffffff;
+    22 text-align: center;
+    23 float: left;
+    24 left: 0;
+    25 z-index: 2000;
+    26
+}
+
+27 28 .marquee,
+29 *[class^="marquee"] {
+    30 display: inline-block;
+    31 white-space: nowrap;
+    32 position: absolute;
+    33
+}
+
+34 35 .marquee {
+    margin-left: 25%;
+}
+
+36 37 .marquee-content-items {
+    38 display: inline-block;
+    39 padding: 5px;
+    40 margin: 0;
+    41 height: 45px;
+    42 position: relative;
+    43
+}
+
+44 45 .marquee-content-items li {
+    46 display: inline-block;
+    47 line-height: 35px;
+    48 color: #fff;
+    49
+}
+
+50 51 .marquee-content-items li:after {
+    52 content: "|";
+    53 margin: 0 1em;
+    54
 }
