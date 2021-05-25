@@ -1,5 +1,6 @@
 :root {
     --main-brand-color: #FF005A;
+    --main-brand-pink: #FF27CA;
     --main-main-dark: #FF005A;
 }
 
@@ -337,7 +338,6 @@ header {
     float: left;
     left: 0;
     z-index: 2000;
-
 }
 
 .marquee,
@@ -345,7 +345,6 @@ header {
     display: inline-block;
     white-space: nowrap;
     position: absolute;
-
 }
 
 .marquee {
@@ -358,7 +357,6 @@ header {
     margin: 0;
     height: 45px;
     position: relative;
-
 }
 
 .marquee-content-items li {
@@ -371,5 +369,18 @@ header {
 .marquee-content-items li:after {
     content: "|";
     margin: 0 1em;
+}
 
+.trendingMovieButton {
+    background: rgba(255, 255, 255, 0.527);
+    font-size: 1.1em;
+    border: none;
+    line-height: 1.9em;
+    margin-bottom: 10px;
+    border-bottom: solid 1px #FF27CA;
+}
+
+.trendingFilmScore {
+    font-family: 'highvoltage';
+    color:rgb(150, 150, 150);
 }
