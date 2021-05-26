@@ -161,6 +161,7 @@ function renderHomePage() {
 
 $("#trendingButton").on('click', renderTrendingPage);
 $("#homeButton").on('click', renderHomePage);
+$("#aboutButton").on('click', renderAboutPage);
 
 
 
