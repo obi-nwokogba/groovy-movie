@@ -199,8 +199,6 @@ form {
     margin-left: -5px;
 }
 
-
-
 #searchButton:active {
     background: #ff2C7A;
     border: solid 2px;
@@ -221,13 +219,11 @@ form {
 
 #ratingContainer {
     max-width: 100px;
-
 }
 
 .mainMovieImage {
     max-width: 90vw;
 }
-
 
 #trendingBox {
     background-color: #444444;
@@ -236,10 +232,6 @@ form {
     font-size: 0.9em;
     font-family: 'Newsreader', serif;
 }
-
-
-
-
 
 
 /* MOBILE */
@@ -377,10 +369,24 @@ header {
     border: none;
     line-height: 1.9em;
     margin-bottom: 10px;
-    border-bottom: solid 1px #FF27CA;
 }
+
+.trendingMovieButton:hover{
+    background:#4A4A42;
+    color:white;
+    padding:10px;
+    font-size:1.2em;
+}
+
 
 .trendingFilmScore {
     font-family: 'highvoltage';
-    color:rgb(150, 150, 150);
+    color:rgb(235, 235, 235);
+    border-radius:50%;
+    background-color:#31312C;
+    font-size:17px;
+    height:35px;
+    width:35px;
+    min-height:40px;
+    padding:6px;
 }

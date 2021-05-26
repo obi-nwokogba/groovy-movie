@@ -168,7 +168,10 @@ function renderTrendingPage() {
                          if (typeof trendingString2 === 'undefined') {
                             //alert("one undefined found!");
                          } else {
-                            trendingString2 = trendingString2 + `  <button class="trendingMovieButton">` + currentTrendingTitle + ` &middot; ${currentVoteAverage}</button>`;
+                            trendingString2 = trendingString2 + 
+                                    `  <button rel="modal:open" class="trendingMovieButton" rel="modal:open" href="ex1">` + 
+                            currentTrendingTitle + 
+                                    ` <span class="trendingFilmScore">${currentVoteAverage}</span></button>`;
                          }
                       }
 
@@ -192,6 +195,11 @@ $("#homeButton").on('click', renderHomePage);
 
 
 renderTrendingPage();
+
+
+ $("#fade").modal({
+  fadeDuration: 100
+});
 
 
 
