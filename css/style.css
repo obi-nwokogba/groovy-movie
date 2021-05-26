@@ -84,7 +84,7 @@ header {
 }
 
 main {
-    background: #e3e3e3;
+    background: #ededed;
     color: rgb(42, 42, 42);
     padding: 20px;
 }
@@ -234,6 +234,167 @@ form {
 }
 
 
+
+
+.headerContainer {
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+}
+
+header {
+    padding: 0px !important;
+    width: 100%;
+    margin: 0px;
+}
+
+.headerGradient {
+    background: #FF005B;
+    background: -webkit-radial-gradient(bottom, #FF005B, #A90545);
+    background: -moz-radial-gradient(bottom, #FF005B, #A90545);
+    background: radial-gradient(to top, #FF005B, #A90545);
+}
+
+
+
+/* MARQUEE STYLES FROM */
+.simple-marquee-container * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'highvoltage', sans-serif;
+}
+
+.simple-marquee-container {
+    width: 100%;
+    background: grey;
+    float: left;
+    display: inline-block;
+    overflow: hidden;
+    box-sizing: border-box;
+    height: 45px;
+    position: relative;
+    cursor: pointer;
+    font-family: 'highvoltage', sans-serif;
+}
+
+.simple-marquee-container .marquee-sibling {
+    padding: 0;
+    background: rgb(61, 61, 61);
+    width: 70px;
+    height: 45px;
+    line-height: 42px;
+    font-size: 12px;
+    font-weight: normal;
+    color: #ffffff;
+    text-align: center;
+    float: left;
+    left: 0;
+    z-index: 2000;
+}
+
+.simple-marquee-container .marquee,
+.simple-marquee-container *[class^="marquee"] {
+    display: inline-block;
+    white-space: nowrap;
+    position: absolute;
+}
+
+.simple-marquee-container .marquee {
+    margin-left: 25%;
+}
+
+.simple-marquee-container .marquee-content-items {
+    display: inline-block;
+    padding: 5px;
+    margin: 0;
+    height: 45px;
+    position: relative;
+}
+
+.simple-marquee-container .marquee-content-items li {
+    display: inline-block;
+    line-height: 35px;
+    color: rgba(255, 255, 255, 0.815);
+    font-family: 'highvoltage', sans-serif;
+}
+
+.simple-marquee-container .marquee-content-items li:after {
+    content: "|";
+    margin: 0 1em;
+}
+
+.content {
+    display: block;
+    width: 100vw;
+    background: rgb(215, 215, 215);
+    padding: 1em;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.content * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+
+
+
+.trendingMovieButton {
+    background: rgba(255, 255, 255, 0.527);
+    font-size: 1.1em;
+    border: none;
+    line-height: 1.9em;
+    margin-bottom: 10px;
+}
+
+.trendingMovieButton:hover {
+    background: #4A4A42;
+    color: white;
+    padding: 10px;
+    font-size: 1.2em;
+}
+
+
+.trendingFilmScore {
+    font-family: 'highvoltage', sans-serif;
+    color: rgb(235, 235, 235);
+    border-radius: 50%;
+    background-color: #31312C;
+    font-size: 17px;
+    height: 35px;
+    width: 35px;
+    min-height: 40px;
+    padding: 6px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* MOBILE */
 @media only screen and (max-width: 600px) {
 
@@ -278,115 +439,4 @@ form {
     p.heading2 {
         font-size: 40px;
     }
-}
-
-.headerContainer {
-    width: 100%;
-    margin: 0;
-    padding: 10px;
-}
-
-header {
-    padding: 0px !important;
-    width: 100%;
-    margin: 0px;
-}
-
-.headerGradient {
-    background: #FF005B;
-    background: -webkit-radial-gradient(bottom, #FF005B, #A90545);
-    background: -moz-radial-gradient(bottom, #FF005B, #A90545);
-    background: radial-gradient(to top, #FF005B, #A90545);
-}
-
-
-
-/* MARQUEE STYLES FROM */
-
-
-.marqueecontainer {
-    width: 100%;
-    background: #4FC2E5;
-    float: left;
-    display: inline-block;
-    overflow: hidden;
-    box-sizing: border-box;
-    height: 45px;
-    position: relative;
-    cursor: pointer;
-
-}
-
-.marquee-sibling {
-    padding: 0;
-    background: #3BB0D6;
-    width: 20%;
-    height: 45px;
-    line-height: 42px;
-    font-size: 12px;
-    font-weight: normal;
-    color: #ffffff;
-    text-align: center;
-    float: left;
-    left: 0;
-    z-index: 2000;
-}
-
-.marquee,
-*[class^="marquee"] {
-    display: inline-block;
-    white-space: nowrap;
-    position: absolute;
-}
-
-.marquee {
-    margin-left: 25%;
-}
-
-.marquee-content-items {
-    display: inline-block;
-    padding: 5px;
-    margin: 0;
-    height: 45px;
-    position: relative;
-}
-
-.marquee-content-items li {
-    display: inline-block;
-    line-height: 35px;
-    color: #fff;
-
-}
-
-.marquee-content-items li:after {
-    content: "|";
-    margin: 0 1em;
-}
-
-.trendingMovieButton {
-    background: rgba(255, 255, 255, 0.527);
-    font-size: 1.1em;
-    border: none;
-    line-height: 1.9em;
-    margin-bottom: 10px;
-}
-
-.trendingMovieButton:hover{
-    background:#4A4A42;
-    color:white;
-    padding:10px;
-    font-size:1.2em;
-}
-
-
-.trendingFilmScore {
-    font-family: 'highvoltage';
-    color:rgb(235, 235, 235);
-    border-radius:50%;
-    background-color:#31312C;
-    font-size:17px;
-    height:35px;
-    width:35px;
-    min-height:40px;
-    padding:6px;
 }
