@@ -9,12 +9,12 @@
     src: url('../fonts/highvoltage.ttf');
 }
 
-h1{
+h1 {
     font-family: 'highvoltage';
-    opacity:0.7;
-    text-align:center;
-    border-bottom:dotted 3px rgba(51, 51, 51, 0.205);
-    margin-bottom:45px !important;
+    opacity: 0.7;
+    text-align: center;
+    border-bottom: dotted 3px rgba(51, 51, 51, 0.205);
+    margin-bottom: 45px !important;
 }
 
 html {
@@ -92,8 +92,8 @@ header {
 }
 
 main {
-    background: #ededed;
-    color: rgb(42, 42, 42);
+    background: #F2F2F2;
+    color: rgb(32, 32, 32);
     padding: 20px;
 }
 
@@ -104,7 +104,7 @@ main {
 footer {
     background: rgb(70, 70, 70);
     font-family: 'Poppins', sans-serif;
-    line-height:0.95em;
+    line-height: 0.95em;
 }
 
 .footerContainer {
@@ -118,9 +118,9 @@ footer {
     color: #2a2a25;
     border-radius: 16px 8px 8px 16px;
     padding: 12px;
-    height:60px;
-    min-height:60px;
-    font-size:1.3em;
+    height: 60px;
+    min-height: 60px;
+    font-size: 1.3em;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -131,8 +131,8 @@ footer {
     color: white;
     width: 105px;
     border: none;
-    min-height:60px;
-    font-size:1.3em;
+    min-height: 60px;
+    font-size: 1.3em;
 }
 
 .majorHeading {
@@ -172,8 +172,8 @@ p.renderedText1 {
     opacity: 0.2;
     margin: 0 auto;
     display: block;
-    margin-bottom:-30px;
-    margin-top:-20px
+    margin-bottom: -30px;
+    margin-top: -20px
 }
 
 .navigationBar>button {
@@ -183,7 +183,12 @@ p.renderedText1 {
     background: none;
     border-bottom: dotted 1px rgba(255, 255, 255, 0.8);
     color: rgba(255, 255, 255, 0.9);
-    
+}
+
+.navigationBar > button:active,.navigationBar > button:hover{
+    border-bottom:solid 2px black;
+    background:rgba(255, 255, 255, 0.603);
+    color:black;
 }
 
 form {
@@ -204,7 +209,7 @@ form {
     border-radius: 17px 17px 17px 17px;
     height: 49px;
     margin-top: -2px;
-    border-right-width:0px
+    border-right-width: 0px
 }
 
 #searchBar:active {
@@ -216,9 +221,9 @@ form {
     border-radius: 17px 17px 17px 17px;
     height: 51px;
     margin-left: -2px;
-    border-left:solid 1px #ff005a;
+    border-left: solid 1px #ff005a;
     font-family: 'Poppins', sans-serif;
-    font-size:0.9em;
+    font-size: 0.9em;
 }
 
 #searchButton:active {
@@ -295,7 +300,7 @@ header {
     display: inline-block;
     overflow: hidden;
     box-sizing: border-box;
-    height: 45px;
+    height: 35px;
     position: relative;
     cursor: pointer;
     font-family: 'highvoltage', sans-serif;
@@ -304,7 +309,7 @@ header {
 .simple-marquee-container .marquee-sibling {
     padding: 0;
     background: rgb(61, 61, 61);
-    width: 70px;
+    width: 60px;
     height: 45px;
     line-height: 42px;
     font-size: 12px;
@@ -350,8 +355,8 @@ header {
 .content {
     display: block;
     width: 100vw;
-    background: rgb(215, 215, 215);
-    padding: 1em;
+    background: black;
+    padding: 7px;;
     overflow: hidden;
     margin: 0 auto;
 }
@@ -377,6 +382,10 @@ header {
     border: none;
     line-height: 1.9em;
     margin-bottom: 10px;
+    -webkit-transition:  200ms ease 0.2s;
+    -moz-transition:  200ms ease 0.2s;
+    -o-transition:  200ms ease 0.2s;
+    transition: 200ms ease 0.2s;
 }
 
 .trendingMovieButton:hover {
@@ -467,13 +476,35 @@ header {
 }
 
 
-a{
-    color:#FF005A !important;
+a {
+    color: #FF005A !important;
     text-decoration: none;
     /* border-bottom:solid 2px #FF005A; */
 }
 
-a.hover{
-    color:white;
-    background:#464646;
+a.hover {
+    color: white;
+    background: #464646;
+}
+
+
+.trendingImageHidden {
+    width: 90%;
+    margin-top: 10px;
+}
+
+.trendingText {
+    width: 90%;
+    font-weight: 300;
+    line-height: 1em;
+    font-size: 1em;
+    text-align: left;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding-bottom: 13px;
+
+}
+
+.hiddenContent {
+    display: none;
 }

@@ -23,6 +23,6 @@ A web app for exploring the world of Cinema.
 [Click here](#) to see the working app!
 
 ## Future Enhancements
-- Show the launch patch for every launch
-- Show launch details in a modal
-- Allow a user save their favourite launches
+- Allow users create accounts.
+- Allow users post comments under each movie and discuss.
+- Allow a user save their favourite movies and series.
