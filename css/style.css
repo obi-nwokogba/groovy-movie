@@ -9,6 +9,14 @@
     src: url('../fonts/highvoltage.ttf');
 }
 
+h1{
+    font-family: 'highvoltage';
+    opacity:0.7;
+    text-align:center;
+    border-bottom:dotted 3px rgba(51, 51, 51, 0.205);
+    margin-bottom:45px !important;
+}
+
 html {
     background: rgb(60, 60, 60);
 }
@@ -95,6 +103,8 @@ main {
 
 footer {
     background: rgb(70, 70, 70);
+    font-family: 'Poppins', sans-serif;
+    line-height:0.95em;
 }
 
 .footerContainer {
@@ -104,20 +114,25 @@ footer {
 }
 
 #searchBar {
-    border: solid 4px rgba(41, 41, 36, 0.6);
+    border: solid 4px #464646;
     color: #2a2a25;
     border-radius: 16px 8px 8px 16px;
-    padding: 15px;
-    width: ;
+    padding: 12px;
+    height:60px;
+    min-height:60px;
+    font-size:1.3em;
+    font-family: 'Poppins', sans-serif;
 }
 
 #searchButton {
-    background: #2A2A25;
+    background: #464646;
     /* border-radius: 20px 0px 20px 20px; */
     padding: 15px;
     color: white;
     width: 105px;
     border: none;
+    min-height:60px;
+    font-size:1.3em;
 }
 
 .majorHeading {
@@ -154,9 +169,11 @@ p.renderedText1 {
 }
 
 .bottomFooterLogo {
-    opacity: 0.3;
+    opacity: 0.2;
     margin: 0 auto;
     display: block;
+    margin-bottom:-30px;
+    margin-top:-20px
 }
 
 .navigationBar>button {
@@ -164,8 +181,9 @@ p.renderedText1 {
     margin-top: 10px;
     border: none;
     background: none;
-    border-bottom: dotted 1px rgba(255, 255, 255, 0.6);
-    color: rgba(255, 255, 255, 0.8);
+    border-bottom: dotted 1px rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.9);
+    
 }
 
 form {
@@ -178,14 +196,15 @@ form {
     margin: 0 auto;
     margin-top: -15px;
     padding: 4px;
-    border-radius: 26px;
+    border-radius: 23px;
 }
 
 #searchBar {
     width: 400px;
-    border-radius: 15px 0px 0px 15px;
+    border-radius: 17px 17px 17px 17px;
     height: 49px;
     margin-top: -2px;
+    border-right-width:0px
 }
 
 #searchBar:active {
@@ -194,9 +213,12 @@ form {
 }
 
 #searchButton {
-    border-radius: 0px 15px 15px 0px;
+    border-radius: 17px 17px 17px 17px;
     height: 51px;
-    margin-left: -5px;
+    margin-left: -2px;
+    border-left:solid 1px #ff005a;
+    font-family: 'Poppins', sans-serif;
+    font-size:0.9em;
 }
 
 #searchButton:active {
@@ -404,16 +426,18 @@ header {
         border-radius: 20px 0px 0px 20px;
         padding: 15px;
         width: 70%;
+        font-family: 'Poppins', sans-serif;
     }
 
     #searchButton {
-        background: rgb(42 42 37 / 71%);
+        background: #464646;
         border-radius: 0px 16px 16px 0px;
         padding: 12px;
         color: white;
         width: 80px;
         border: none;
         opacity: 0.9;
+        font-family: 'Poppins', sans-serif;
     }
 
     #searchButton:active {
@@ -430,6 +454,7 @@ header {
         padding: 4px 2px 4px 2px;
         border-radius: 26px;
         margin-bottom: 20px;
+        font-family: 'Poppins', sans-serif;
     }
 
     .bottomFooterLogo {
@@ -439,4 +464,16 @@ header {
     p.heading2 {
         font-size: 40px;
     }
+}
+
+
+a{
+    color:#FF005A !important;
+    text-decoration: none;
+    /* border-bottom:solid 2px #FF005A; */
+}
+
+a.hover{
+    color:white;
+    background:#464646;
 }

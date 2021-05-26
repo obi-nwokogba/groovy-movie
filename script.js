@@ -146,7 +146,8 @@ function renderTrendingPage() {
                             ` <span class="trendingFilmScore">${currentVoteAverage}</span></button>`;
                     }
                 }
-                $pageContent.html(`<p class="renderedText">${trendingString2}</p>`);
+                $pageContent.html(`<h1>Trending this Week</h1>
+                <p class="renderedText">${trendingString2}</p>`);
             },
             function (error) {
                 console.log("bad request: ", error);
@@ -155,33 +156,61 @@ function renderTrendingPage() {
 }
 
 function renderHomePage() {
-    $pageContent.html(``);
-    $pageContent.html(``);
+    $pageContent.html(`<h1>Welome to Groovy Movie!<br />The place where cinema lives.</h1>`);
+}
+
+
+
+function renderAboutPage() {
+    $pageContent.html(`<h1>About Groovy Movie</h1><p class="renderedText1">Thanks for using Groovy Movie! Groovy Movie is the first project by Obi Nwokogba, a Software Engineering student at General Assembly.<br /><br /> This app's source code is on 
+    <a href="" target="_blank">Github</a>, and some technologies used in this app are Javascript, CSS, HTML, jQUery, Bootstrap, and the information on this site is all courtesy of 
+    <a href="https://developers.themoviedb.org/3/people/get-popular-people" target="_blank">TheMovieDB.org's excellent and free API.</p>`);
+    
+}
+
+
+function renderPeoplePage(){
+
+$.ajax({
+            url: `https://api.themoviedb.org/3/person/popular?api_key=0153dd9142cbca8ace6559209c3cf1aa`
+        })
+        .then(
+            function (returnedData) {
+                let returnedBackdropImage = returnedData["backdrop_path"];
+
+                //console.log(returnedData);
+                $renderTitleBox.text(returnedData["original_title"]);
+
+                let releaseDate = returnedData["release_date"];
+                $renderYearBox.text(releaseDate.substring(0, 4));
+                $renderIMDBRatingBox.text(returnedData["vote_average"]);
+                $renderGenreBox.text(returnedData["genres"][0]["name"]);
+
+                // Display an Image
+                $moveImageBox1.html(`<img class="mainMovieImage" src="https://image.tmdb.org/t/p/w500${returnedBackdropImage}" alt="movie poster" />`);
+                $renderOverviewBox.text(returnedData["overview"]);
+            },
+            function (error) {
+                console.log("bad request: ", error);
+            }
+        );
 }
 
 $("#trendingButton").on('click', renderTrendingPage);
 $("#homeButton").on('click', renderHomePage);
 $("#aboutButton").on('click', renderAboutPage);
+$("#peopleButton").on('click', renderPeoplePage);
 
 
 
 renderTrendingPage();
-
 
 $("#fade").modal({
     fadeDuration: 100
 });
 
 
-
-
-
-
-
-
-
 $(function () {
-
         let options = {
             autostart: true,
             property: 'value',
@@ -197,9 +226,4 @@ $(function () {
         }
 
         $('.simple-marquee-container').SimpleMarquee(options);
-        
-    
-
-    //$('.simple-marquee-container').SimpleMarquee();
-
 });
