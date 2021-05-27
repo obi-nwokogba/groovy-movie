@@ -625,6 +625,10 @@ header {
         
     }
 
+    #mainLogo{
+        width:200px;
+    }
+
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */

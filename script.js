@@ -25,53 +25,49 @@ const trendingURL = `https://api.themoviedb.org/3/movie/550?api_key=0153dd9142cb
 
 
 
-function getAdditionalMovieInfo(inputMovieTitle,inputMovieYear){
+function getAdditionalMovieInfo(inputMovieTitle, inputMovieYear) {
 
     // http://www.omdbapi.com/?t=matrix&y=1999&plot=full
 
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-// TODO CURRENT
-function performSearch(event) {
-
-    event.preventDefault();
-    searchText = $("#searchBar").val();
+    let OMDBMovieInformationObject = {
+        title: "",
+        cast: "",
+        director: "",
+        plot: "",
+        language: "",
+        imdbrating: "",
+        metacriticrating: "",
+        awards: "",
+        boxoffice: ""
+    };
 
     let movieHTMLString = `<div class="movieDisplayContainer"><div class="movieDisplayLeftSide>`;
-    let originalTitle4, backdropPath4, posterPath4, voteAverage4, overview4, releaseDate4,
-        originalLanguage4;
+    let omdbTitle, omdbCast,omdbDirector, omdbPlot,omdbLanguage,omdbImdbrating, omdbMetacriticrating, omdbAwards,omdbBoxoffice;
 
     $.ajax({
-            url: `https://api.themoviedb.org/3/search/movie?query=${searchText}&api_key=0153dd9142cbca8ace6559209c3cf1aa`
+            url: `http://www.omdbapi.com/?t=matrix&y=1999&plot=full&i=tt3896198&apikey=f840d131`
         })
         .then(
             function (returnedData) {
-                let returnedBackdropImage = returnedData["backdrop_path"];
 
-                originalTitle4 = returnedData["results"][0]["original_title"];
-                originalLanguage4 = returnedData["results"][0]["original_language"];
+                /* VARIABLES 
+                omdbTitle, omdbCast,omdbDirector, omdbPlot,omdbLanguage,omdbImdbrating,
+                omdbMetacriticrating, omdbAwards,omdbBoxoffice*/
 
-                releaseDate4 = (returnedData["results"][0]["release_date"]).slice(0, 4);
-                voteAverage4 = returnedData["results"][0]["vote_average"];
+                omdbTitle = returnedData["Title"];
+                omdbCast = returnedData["Actors"];
+                omdbDirector = returnedData['Director'];
+                omdbPlot = returnedData['Plot'];
+                omdbLanguage = returnedData['Language'];
+                omdbImdbrating = returnedData['imdbRating'];
+                omdbMetacriticrating = "";
+                
+                
+                omdbAwards = "";
+                omdbBoxoffice = "";
 
-                posterPath4 = returnedData["results"][0]["poster_path"];
-                let posterDisplay =
-                    `<img class="moviePoster" src="https://image.tmdb.org/t/p/w500${posterPath4}"></img>`;
 
-                backdropPath4 = returnedData["results"][0]["backdrop_path"];
-                let backdropDisplay = `<img src="https://image.tmdb.org/t/p/w500${backdropPath4}"></img>`;
+
 
                 overview4 = returnedData["results"][0]["overview"];
                 let overviewDisplay = `<p class="renderedText1">${overview4}</p>`;
@@ -122,6 +118,94 @@ function performSearch(event) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+// TODO CURRENT
+function performSearch(event) {
+
+    event.preventDefault();
+    searchText = $("#searchBar").val();
+
+    let movieHTMLString = `<div class="movieDisplayContainer"><div class="movieDisplayLeftSide>`;
+    let originalTitle4, backdropPath4, posterPath4, voteAverage4, overview4, releaseDate4,
+        originalLanguage4;
+
+    $.ajax({
+            url: `https://api.themoviedb.org/3/search/movie?query=${searchText}&api_key=0153dd9142cbca8ace6559209c3cf1aa`
+        })
+        .then(
+            function (returnedData) {
+                let returnedBackdropImage = returnedData["backdrop_path"];
+
+                originalTitle4 = returnedData["results"][0]["original_title"];
+                originalLanguage4 = returnedData["results"][0]["original_language"];
+
+                releaseDate4 = (returnedData["results"][0]["release_date"]).slice(0, 4);
+                voteAverage4 = returnedData["results"][0]["vote_average"];
+
+                posterPath4 = returnedData["results"][0]["poster_path"];
+                let posterDisplay =
+                    `<img class="moviePoster" src="https://image.tmdb.org/t/p/w500${posterPath4}"></img>`;
+
+                backdropPath4 = returnedData["results"][0]["backdrop_path"];
+                let backdropDisplay = `<img src="https://image.tmdb.org/t/p/w500${backdropPath4}"></img>`;
+
+                overview4 = returnedData["results"][0]["overview"];
+                let overviewDisplay = `<p class="renderedText1">${overview4}</p>`;
+
+                let OMDBMovieInfo = getAdditionalMovieInfo(originalTitle4, releaseDate4);
+
+                movieHTMLString = `                     
+                <p class="heading2">${originalTitle4} &middot; 
+                <span class="lighter">${releaseDate4}</span></p>
+
+                <div class="movieDisplayLeftSide">
+                ${overviewDisplay}</div>
+
+                <div class="movieDisplayRightSide">
+                ${posterDisplay}
+                </div>
+                <div class="quickStatsContainer">
+                   
+                    <div class="quickStatBox">
+                        <p class="quickStatsHeading">IMDB Rating</p>
+                        <p id="renderIMDBRatingBox" class="renderedText1">${voteAverage4}</p>
+                    </div>
+                    <div class="quickStatBox">
+                    <p class="quickStatsHeading">Language</p>
+                    <p id="renderYearBox" class="renderedText1">${originalLanguage4}</p>
+                   
+                </div>
+
+                    <div class="quickStatBox">
+                        <p class="quickStatsHeading">Genre</p>
+                        <p id="renderGenreBox" class="renderedText1"></p>
+                    </div>
+                </div>`;
+
+                $pageContent.html(movieHTMLString);
+
+            },
+            function (error) {
+                console.log("bad request: ", error);
+            }
+        );
+}
+
+
+
+
+
+
 function getMarquee(event) {
 
 
@@ -144,7 +228,6 @@ function getMarquee(event) {
                     // This check is made because I noticed that occasionally the JSON returns undefined titles.
                     if (currentTrendingTitle === "undefined") {} else if (currentTrendingTitle === undefined) {} else if (currentTrendingTitle === null) {} else {
                         trendingStringMiddle = `${trendingStringMiddle} <li> ${currentTrendingTitle} </li>`;
-
                     }
                 }
                 $(".marquee-content-items").html(trendingStringMiddle);
@@ -265,7 +348,8 @@ function renderHomePage() {
 
 
 function renderAboutPage() {
-    $pageContent.html(`<h1>About Groovy Movie</h1><p class="renderedText1">Thanks for using Groovy Movie! Groovy Movie is the first project by Obi Nwokogba, a Software Engineering student at General Assembly.<br /><br /> This app's source code is on 
+    $pageContent.html(`<h1>About Groovy Movie</h1><p class="renderedText1">Thanks for using Groovy Movie! Groovy Movie is the first project by Obi Nwokogba, a Software Engineering student at 
+    <a href="https://generalassemb.ly/" target="_blank">General Assembly</a>.<br /><br /> This app's source code is on 
     <a href="" target="_blank">Github</a>, and some technologies used in this app are Javascript, CSS, HTML, jQUery, Bootstrap, and the information on this site is all courtesy of 
     <a href="https://developers.themoviedb.org/3/people/get-popular-people" target="_blank">TheMovieDB.org's excellent and free API.</p>`);
 }
@@ -298,9 +382,8 @@ function renderPeoplePage() {
 
 
 function getGenre(genreNumber) {
+
     let genreString = "";
-
-
 
     $.ajax({
             url: `https://api.themoviedb.org/3/trending/all/week?api_key=0153dd9142cbca8ace6559209c3cf1aa`
@@ -432,4 +515,4 @@ renderCinemaGridPage();
 //OMDb API: http://www.omdbapi.com/?i=tt3896198&apikey=f840d131
 //Poster API: http://img.omdbapi.com/?i=tt3896198&h=600&apikey=f840d131
 
-// http://www.omdbapi.com/?t=matrix&y=1999&plot=full
+// http://www.omdbapi.com/?t=matrix&y=1999&plot=full&i=tt3896198&apikey=f840d131

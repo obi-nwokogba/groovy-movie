@@ -20,7 +20,7 @@ A web app for exploring the world of Cinema.
 
 ## Getting Started
 
-[Click here](#) to see the working app!
+[Click here](![screenshot](https://groovym.com/)) to see the working app!
 
 ## Future Enhancements
 - Allow users create accounts.
