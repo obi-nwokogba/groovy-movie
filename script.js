@@ -40,13 +40,12 @@ const trendingURL = `https://api.themoviedb.org/3/movie/550?api_key=0153dd9142cb
 // TODO CURRENT
 function performSearch(event) {
 
-    
-
     event.preventDefault();
     searchText = $("#searchBar").val();
 
     let movieHTMLString = `<div class="movieDisplayContainer"><div class="movieDisplayLeftSide>`;
-    let originalTitle4,backdropPath4, posterPath4, voteAverage4, overview4, releaseDate4;
+    let originalTitle4,backdropPath4, posterPath4, voteAverage4, overview4, releaseDate4,
+    originalLanguage4;
 
     $.ajax({
             url: `https://api.themoviedb.org/3/search/movie?query=${searchText}&api_key=0153dd9142cbca8ace6559209c3cf1aa`
@@ -55,9 +54,92 @@ function performSearch(event) {
             function (returnedData) {
                 let returnedBackdropImage = returnedData["backdrop_path"];
 
-                //console.log(returnedData);
                 originalTitle4 = returnedData["results"][0]["original_title"];
+                originalLanguage4 = returnedData["results"][0]["original_language"];
+                
+                releaseDate4 = (returnedData["results"][0]["release_date"]).slice(0,4);
+                voteAverage4 = returnedData["results"][0]["vote_average"];
+
+                posterPath4 = returnedData["results"][0]["poster_path"];
+                let posterDisplay =  
+                `<img class="moviePoster" src="https://image.tmdb.org/t/p/w500${posterPath4}"></img>`;
+
+                backdropPath4 = returnedData["results"][0]["backdrop_path"];
+                let backdropDisplay =  `<img src="https://image.tmdb.org/t/p/w500${backdropPath4}"></img>`;
+
                 overview4 = returnedData["results"][0]["overview"];
+                let overviewDisplay = `<p class="renderedText1">${overview4}</p>`;
+
+
+                movieHTMLString = `                     
+                <p class="heading2">${originalTitle4} &middot; 
+                <span class="lighter">${releaseDate4}</span></p>
+
+                <div class="movieDisplayLeftSide">
+                ${overviewDisplay}</div>
+
+                <div class="movieDisplayRightSide">
+                ${posterDisplay}
+                </div>
+                <div class="quickStatsContainer">
+                   
+
+                    <div class="quickStatBox">
+                        <p class="quickStatsHeading">IMDB Rating</p>
+                        <p id="renderIMDBRatingBox" class="renderedText1">${voteAverage4}</p>
+                    </div>
+                    <div class="quickStatBox">
+                    <p class="quickStatsHeading">Language</p>
+                    <p id="renderYearBox" class="renderedText1">${originalLanguage4}</p>
+                   
+                </div>
+
+                    <div class="quickStatBox">
+                        <p class="quickStatsHeading">Genre</p>
+                        <p id="renderGenreBox" class="renderedText1"></p>
+                    </div>
+                </div>
+
+                
+               `;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
                 /*
@@ -73,8 +155,7 @@ function performSearch(event) {
 */
 
 
-                $pageContent.html(`<h1>${originalTitle4}</h1>
-                <p class="renderedText"></p></div><div class="movieDisplayRightSide">Images</div>`);
+                $pageContent.html(movieHTMLString);
 
                 //$pageContent.html(`HELLO WORLD`);
             },
@@ -321,6 +402,8 @@ function getGenre(genreNumber) {
 
 function renderCinemaGridPage() {
 
+    //alert("CinemaGrid");
+
     trendingString2 = `<span id="cinemaGridContainer">`;
     let cinemaGridHTMLSequence = "";
     let filmGenre1 = "";
@@ -372,12 +455,12 @@ function renderCinemaGridPage() {
 
 
 
-
+$("#cinemaGridButton").on('click', renderCinemaGridPage);
 $("#trendingButton").on('click', renderTrendingPage);
 $("#homeButton").on('click', renderHomePage);
 $("#aboutButton").on('click', renderAboutPage);
-$("#peopleButton").on('click', renderPeoplePage);
-$("#cinemaGridButton").on('click', renderCinemaGridPage);
+//$("#peopleButton").on('click', renderPeoplePage);
+
 
 /*
 $(".trendingMovieButton").on('click', function () {
@@ -385,9 +468,7 @@ $(".trendingMovieButton").on('click', function () {
 }) */
 
 $("#pageContent").on('click', 'button', function (event) {
-    alert(event.target);
     event.target.getch
-
 });
 
 
@@ -415,6 +496,9 @@ $(function () {
 
     $('.simple-marquee-container').SimpleMarquee(options);
 });
+
+
+
 
 
 
