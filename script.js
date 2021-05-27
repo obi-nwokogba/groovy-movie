@@ -204,13 +204,13 @@ function renderPeoplePage() {
 }
 
 
+function getGenre(genreNumber){
+    let genreString ="";
 
-function renderCinemaGridPage(){
 
-    alert("Cinema Grid Clicked");
 
     $.ajax({
-        url: `https://api.themoviedb.org/3/person/popular?api_key=0153dd9142cbca8ace6559209c3cf1aa`
+        url: `https://api.themoviedb.org/3/trending/all/week?api_key=0153dd9142cbca8ace6559209c3cf1aa`
     })
     .then(
         function (returnedData) {
@@ -232,6 +232,58 @@ function renderCinemaGridPage(){
             console.log("bad request: ", error);
         }
     );
+
+
+
+    return genreString;
+}
+
+
+function renderCinemaGridPage() {
+
+    trendingString2 = `<span id="cinemaGridContainer">`;
+    let cinemaGridHTMLSequence = "";
+    let filmGenre1 = "";
+    let filmGenre2 = "";
+    let currentTrendingTitle, currentVoteAverage, overview, backdropPath;
+
+    $.ajax({
+            url: `https://api.themoviedb.org/3/trending/all/week?api_key=0153dd9142cbca8ace6559209c3cf1aa`
+        })
+        .then(
+            function (returnedData) {
+
+                for (i = 0; i < 19; i++) {
+                    currentTrendingTitle = returnedData["results"][i]["title"];
+                    currentVoteAverage = returnedData["results"][i]["vote_average"];
+                    //overview = returnedData["results"][i]["overview"];
+                    backdropPath = returnedData["results"][i]["backdrop_path"];
+
+
+                    filmGenre1 = "Thriller";
+
+                    if (typeof trendingString2 === 'undefined') {
+                        //alert("one undefined found!");
+                    } else {
+                        cinemaGridHTMLSequence = cinemaGridHTMLSequence +
+                            `<img src="https://image.tmdb.org/t/p/w500${backdropPath}" class="trendingImageHidden">
+
+                            <div class="cinemaGridDetails">
+                            <span class="cinemaGridDetailBox1">${currentTrendingTitle}</span> 
+                            <span class="cinemaGridDetailBox2">${filmGenre1}</span>
+                            <span class="trendingFilmScore">${currentVoteAverage}</span>
+                            </div>`;
+
+                    }
+                }
+                $pageContent.html(`<h1>cinema grid</h1>
+                ${cinemaGridHTMLSequence}
+                </span>`);
+            },
+            function (error) {
+                console.log("bad request: ", error);
+            }
+        );
 }
 
 
@@ -252,13 +304,14 @@ $(".trendingMovieButton").on('click', function () {
     alert(this);
 }) */
 
-$("#pageContent").on('click', 'button', function(event) {
-   alert(event.target);
-    
+$("#pageContent").on('click', 'button', function (event) {
+    alert(event.target);
+    event.target.getch
+
 });
 
 
-renderTrendingPage();
+
 
 $("#fade").modal({
     fadeDuration: 100
@@ -282,3 +335,8 @@ $(function () {
 
     $('.simple-marquee-container').SimpleMarquee(options);
 });
+
+
+
+//renderTrendingPage();
+renderCinemaGridPage();

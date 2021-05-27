@@ -260,9 +260,6 @@ form {
     font-family: 'Newsreader', serif;
 }
 
-
-
-
 .headerContainer {
     width: 100%;
     margin: 0;
@@ -282,8 +279,6 @@ header {
     background: radial-gradient(to top, #FF005B, #A90545);
 }
 
-
-
 /* MARQUEE STYLES FROM */
 .simple-marquee-container * {
     -webkit-box-sizing: border-box;
@@ -291,11 +286,12 @@ header {
     -o-box-sizing: border-box;
     box-sizing: border-box;
     font-family: 'highvoltage', sans-serif;
+    opacity:0.8;
 }
 
 .simple-marquee-container {
     width: 100%;
-    background: grey;
+    background: rgb(73, 73, 73);
     float: left;
     display: inline-block;
     overflow: hidden;
@@ -342,9 +338,11 @@ header {
 
 .simple-marquee-container .marquee-content-items li {
     display: inline-block;
-    line-height: 35px;
-    color: rgba(255, 255, 255, 0.815);
-    font-family: 'highvoltage', sans-serif;
+    line-height: 28px;
+    color: rgba(255, 255, 255, 0.915);
+    font-family: 'poppins', sans-serif;
+    font-weight:400;
+    font-size:0.9em;
 }
 
 .simple-marquee-container .marquee-content-items li:after {
@@ -367,14 +365,6 @@ header {
     -o-box-sizing: border-box;
     box-sizing: border-box;
 }
-
-
-
-
-
-
-
-
 
 .trendingMovieButton {
     background: rgba(255, 255, 255, 0.527);
@@ -410,9 +400,33 @@ header {
 
 
 
+.cinemaGridDetails{
+    margin-top:-35px;
+    background:rgba(0, 0, 0, 0.726);
+    display:block;
+    width:90%;
+}
 
+.cinemaGridDetailBox1{
+    display: inline-block;
+    line-height: 35px;
+    color: rgba(255, 255, 255, 0.815);
+    font-family: 'highvoltage', sans-serif;
+    background:black;
+    padding-left:10px;
+    padding-right:10px;
+    font-size:1.3em;
+}
 
-
+.cinemaGridDetailBox2{
+    display: inline-block;
+    line-height: 35px;
+    color: rgba(255, 255, 255, 0.815);
+    font-family: 'highvoltage', sans-serif;
+    background:black;
+    padding-left:10px;
+    padding-right:10px;
+}
 
 
 
