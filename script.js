@@ -25,7 +25,13 @@ const trendingURL = `https://api.themoviedb.org/3/movie/550?api_key=0153dd9142cb
 
 
 
+function getAdditionalMovieInfo(inputMovieTitle,inputMovieYear){
 
+    // http://www.omdbapi.com/?t=matrix&y=1999&plot=full
+
+
+
+    
 
 
 
@@ -98,61 +104,7 @@ function performSearch(event) {
                         <p class="quickStatsHeading">Genre</p>
                         <p id="renderGenreBox" class="renderedText1"></p>
                     </div>
-                </div>
-
-                
-               `;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                /*
-                let releaseDate = returnedData["release_date"];
-                $renderYearBox.text(releaseDate.substring(0, 4));
-                $renderIMDBRatingBox.text(returnedData["vote_average"]);
-                $renderGenreBox.text(returnedData["genres"][0]["name"]);
-
-                // Display an Image
-                $moveImageBox1.html(`<img class="mainMovieImage" src="https://image.tmdb.org/t/p/w500${returnedBackdropImage}" alt="movie poster" />`);
-                $renderOverviewBox.text(returnedData["overview"]);
-
-*/
+                </div>`;
 
 
                 $pageContent.html(movieHTMLString);
@@ -170,15 +122,12 @@ function performSearch(event) {
 
 
 
-function getTrending(event) {
+function getMarquee(event) {
+
+
 
     let currentTrendingTitle;
     let trendingStringMiddle = "";
-
-    trendingString1Start = `<div class="marqueecontainer">
-    <div class="marquee-sibling"> Breaking News </div>
-    <div class="marquee">
-      <ul class="marquee-content-items">`;
 
     trendingString1End = ` </ul></div></div>`;
 
@@ -258,24 +207,7 @@ function renderTrendingPage() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function renderHomePage() {
-
-    
 
     let homeStringHTML = "";
     let currentTrendingTitle, currentVoteAverage, overview, backdropPath;
@@ -393,17 +325,12 @@ function getGenre(genreNumber) {
                 console.log("bad request: ", error);
             }
         );
-
-
-
     return genreString;
 }
 
 
 
 function renderCinemaGridPage() {
-
-    //alert("CinemaGrid");
 
     trendingString2 = `<span id="cinemaGridContainer">`;
     let cinemaGridHTMLSequence = "";
@@ -451,45 +378,17 @@ function renderCinemaGridPage() {
 }
 
 
-
-
-
-
-
 $("#cinemaGridButton").on('click', renderCinemaGridPage);
-
-
-
-
-
 $("#trendingButton").on('click', renderTrendingPage);
-
-
-
 $("#homeButton").on('click', renderHomePage);
-
-
-
 $("#aboutButton").on('click', renderAboutPage);
-//$("#peopleButton").on('click', renderPeoplePage);
 
 
+// $(".trendingMovieButton").on('click', function () {
 
-$(".trendingMovieButton").on('click', function () {
-    alert(this);
-}) 
-
-$("#pageContent").on('click', 'button', function (event) {
-  
-    
-});
+// }) 
 
 
-
-
-$("#fade").modal({
-    fadeDuration: 100
-});
 
 
 $(function () {
@@ -507,20 +406,16 @@ $(function () {
         direction: 'left'
     }
 
-    $('.simple-marquee-container').SimpleMarquee(options);
+    //$('.simple-marquee-container').SimpleMarquee(options);
+
+    setInterval(function () {
+        $('.simple-marquee-container').SimpleMarquee(options);
+    }, 1000);
 });
 
 
-
-
-
-
-//renderTrendingPage();
+getMarquee();
 renderCinemaGridPage();
-
-
-renderCinemaGridPage();
-
 
 
 
@@ -533,5 +428,8 @@ renderCinemaGridPage();
 
 
 // $5 PATREON API
+// i=tt3896198&apikey=f840d131
 //OMDb API: http://www.omdbapi.com/?i=tt3896198&apikey=f840d131
 //Poster API: http://img.omdbapi.com/?i=tt3896198&h=600&apikey=f840d131
+
+// http://www.omdbapi.com/?t=matrix&y=1999&plot=full
