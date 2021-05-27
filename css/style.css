@@ -22,6 +22,7 @@ html {
 }
 
 :root {
+    --bs-brandnavyblue: #224A89;
     --bs-blue: #0d6efd;
     --bs-indigo: #6610f2;
     --bs-purple: #6f42c1;
@@ -161,8 +162,9 @@ footer {
     font-family: 'PT Sans', sans-serif;
 }
 
+
 #searchButton {
-    background: #464646;
+    background: #224A89;
     /* border-radius: 20px 0px 20px 20px; */
     padding: 15px;
     color: white;
@@ -170,6 +172,7 @@ footer {
     border: none;
     min-height: 60px;
     font-size: 1.3em;
+
 }
 
 .majorHeading {
@@ -238,7 +241,7 @@ form {
     margin: 0 auto;
     display: block;
     text-align: center;
-    border: solid 4px rgba(255, 255, 255, 0.33);
+    border: solid 4px rgba(255, 255, 255, 0.03);
     display: block;
     width: 523px;
     margin: 0 auto;
@@ -261,8 +264,8 @@ form {
 }
 
 #searchButton {
-    border-radius: 17px 17px 17px 17px;
-    height: 51px;
+    border-radius: 13px 13px 13px 13px;
+    height: 60px;
     margin-left: -2px;
     border-left: solid 1px #ff005a;
     font-family: 'PT Sans', sans-serif;
@@ -423,10 +426,12 @@ header {
 }
 
 .trendingMovieButton:hover {
-    background: #4A4A42;
+    background: #2A406D;
     color: white;
     padding: 10px;
     font-size: 1.2em;
+    border-radius:15px;
+    
 }
 
 .trendingFilmScore {
@@ -437,7 +442,8 @@ header {
     font-size: 17px;
     height: 35px;
     width: 35px;
-    min-height: 40px;
+    min-height: 35px;
+    min-width:35px;
     padding: 6px;
 }
 
@@ -534,13 +540,12 @@ header {
         padding: 15px;
         width: 220px;
         font-family: 'PT Sans', sans-serif;
-
     }
 
     #searchButton {
-        background: #464646;
+        background:#2A406D;
         border-radius: 7px 7px 7px 7px;
-        padding: 12px;
+        padding: 10px;
         color: white;
         width: 70px;
         border: none;
@@ -554,15 +559,18 @@ header {
     }
 
     form {
-        border: solid 4px rgba(255, 255, 255, 0.43);
+        border: solid 4px rgba(255, 255, 255, 0.23);
         display: block;
         width: 310px;
         margin: 0 auto;
         margin-top: -30px;
-        padding: 2px 2px 2px 2px;
+        padding: 4px;
         border-radius: 14px;
         margin-bottom: 20px;
         font-family: 'PT Sans', sans-serif;
+        display:flex;
+        flex-direction:row;
+        
     }
 
     .bottomFooterLogo {
@@ -603,7 +611,42 @@ header {
         max-width: 400px !important;
         display: inline;
     }
+
+
+    #searchBar{
+
+    }
+
+    #searchButton{
+
+    }
+
+    form{
+        
+    }
+
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {}
+@media only screen and (min-width: 1200px) {
+
+    .navigationBar>button {
+        font-size:1.2em;
+    }
+
+    #searchBar{
+
+    }
+
+    #searchButton{
+
+    }
+    form{
+
+    }
+
+    .cinemaGridDetailBox1 {
+
+        font-size: 1.8em;
+    }
+}

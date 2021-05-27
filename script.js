@@ -44,8 +44,8 @@ function performSearch(event) {
     searchText = $("#searchBar").val();
 
     let movieHTMLString = `<div class="movieDisplayContainer"><div class="movieDisplayLeftSide>`;
-    let originalTitle4,backdropPath4, posterPath4, voteAverage4, overview4, releaseDate4,
-    originalLanguage4;
+    let originalTitle4, backdropPath4, posterPath4, voteAverage4, overview4, releaseDate4,
+        originalLanguage4;
 
     $.ajax({
             url: `https://api.themoviedb.org/3/search/movie?query=${searchText}&api_key=0153dd9142cbca8ace6559209c3cf1aa`
@@ -56,16 +56,16 @@ function performSearch(event) {
 
                 originalTitle4 = returnedData["results"][0]["original_title"];
                 originalLanguage4 = returnedData["results"][0]["original_language"];
-                
-                releaseDate4 = (returnedData["results"][0]["release_date"]).slice(0,4);
+
+                releaseDate4 = (returnedData["results"][0]["release_date"]).slice(0, 4);
                 voteAverage4 = returnedData["results"][0]["vote_average"];
 
                 posterPath4 = returnedData["results"][0]["poster_path"];
-                let posterDisplay =  
-                `<img class="moviePoster" src="https://image.tmdb.org/t/p/w500${posterPath4}"></img>`;
+                let posterDisplay =
+                    `<img class="moviePoster" src="https://image.tmdb.org/t/p/w500${posterPath4}"></img>`;
 
                 backdropPath4 = returnedData["results"][0]["backdrop_path"];
-                let backdropDisplay =  `<img src="https://image.tmdb.org/t/p/w500${backdropPath4}"></img>`;
+                let backdropDisplay = `<img src="https://image.tmdb.org/t/p/w500${backdropPath4}"></img>`;
 
                 overview4 = returnedData["results"][0]["overview"];
                 let overviewDisplay = `<p class="renderedText1">${overview4}</p>`;
@@ -232,7 +232,7 @@ function renderTrendingPage() {
                         trendingString2 = trendingString2 +
                             `  
                             
-                            <button class="trendingMovieButton" href="ex1">` +
+                            <button class="trendingMovieButton">` +
                             currentTrendingTitle +
                             ` <span class="trendingFilmScore">${currentVoteAverage}</span>
                             
@@ -270,12 +270,12 @@ function renderTrendingPage() {
 
 
 
-/*
+
 
 
 function renderHomePage() {
 
-    // /discover/movie?primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22
+    
 
     let homeStringHTML = "";
     let currentTrendingTitle, currentVoteAverage, overview, backdropPath;
@@ -284,7 +284,7 @@ function renderHomePage() {
     //https://api.themoviedb.org/3/movie/550?api_key=0153dd9142cbca8ace6559209c3cf1aa
 
     $.ajax({
-            url: `https://api.themoviedb.org/3/genre/movie/list&api_key=0153dd9142cbca8ace6559209c3cf1aa`
+            url: `https://api.themoviedb.org/3/genre/movie/list?api_key=0153dd9142cbca8ace6559209c3cf1aa`
         })
         .then(
             function (returnedData) {
@@ -321,7 +321,7 @@ function renderHomePage() {
                 console.log("bad request: ", error);
             }
         );
-} */
+}
 
 
 
@@ -400,6 +400,7 @@ function getGenre(genreNumber) {
 }
 
 
+
 function renderCinemaGridPage() {
 
     //alert("CinemaGrid");
@@ -456,19 +457,31 @@ function renderCinemaGridPage() {
 
 
 $("#cinemaGridButton").on('click', renderCinemaGridPage);
+
+
+
+
+
 $("#trendingButton").on('click', renderTrendingPage);
+
+
+
 $("#homeButton").on('click', renderHomePage);
+
+
+
 $("#aboutButton").on('click', renderAboutPage);
 //$("#peopleButton").on('click', renderPeoplePage);
 
 
-/*
+
 $(".trendingMovieButton").on('click', function () {
     alert(this);
-}) */
+}) 
 
 $("#pageContent").on('click', 'button', function (event) {
-    event.target.getch
+  
+    
 });
 
 
@@ -506,7 +519,7 @@ $(function () {
 renderCinemaGridPage();
 
 
-
+renderCinemaGridPage();
 
 
 
