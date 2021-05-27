@@ -8,6 +8,7 @@ A web app for exploring the world of Cinema.
 - CSS3
 - Javascript/jQuery
 - Bootstrap
+- https://www.jqueryscript.net/demo/jQuery-Plugin-For-Horizontal-Text-Scrolling-Simple-Marquee/
 - [TMDB API - The Movie DB](http://themoviedb.org/settings/api)
 
 ## Screenshots

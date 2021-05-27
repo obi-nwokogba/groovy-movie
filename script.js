@@ -42,7 +42,7 @@ function getAdditionalMovieInfo(inputMovieTitle, inputMovieYear) {
     };
 
     let movieHTMLString = `<div class="movieDisplayContainer"><div class="movieDisplayLeftSide>`;
-    let omdbTitle, omdbCast,omdbDirector, omdbPlot,omdbLanguage,omdbImdbrating, omdbMetacriticrating, omdbAwards,omdbBoxoffice;
+    let omdbTitle, omdbCast, omdbDirector, omdbPlot, omdbLanguage, omdbImdbrating, omdbMetacriticrating, omdbAwards, omdbBoxoffice;
 
     $.ajax({
             url: `http://www.omdbapi.com/?t=matrix&y=1999&plot=full&i=tt3896198&apikey=f840d131`
@@ -51,61 +51,28 @@ function getAdditionalMovieInfo(inputMovieTitle, inputMovieYear) {
             function (returnedData) {
 
                 /* VARIABLES 
-                omdbTitle, omdbCast,omdbDirector, omdbPlot,omdbLanguage,omdbImdbrating,
-                omdbMetacriticrating, omdbAwards,omdbBoxoffice*/
+                1. omdbTitle, 
+                2. omdbCast,
+                3. omdbDirector, 
+                4.omdbPlot,
+                5. omdbLanguage,
+                6. omdbImdbrating,
+                7. omdbMetacriticrating
+                8. omdbAwards
+                9. omdbBoxoffice*/
 
-                omdbTitle = returnedData["Title"];
-                omdbCast = returnedData["Actors"];
-                omdbDirector = returnedData['Director'];
-                omdbPlot = returnedData['Plot'];
-                omdbLanguage = returnedData['Language'];
-                omdbImdbrating = returnedData['imdbRating'];
-                omdbMetacriticrating = "";
-                
-                
-                omdbAwards = "";
-                omdbBoxoffice = "";
+                OMDBMovieInformationObject.omdbTitle = returnedData["Title"];
+                OMDBMovieInformationObject.omdbCast = returnedData["Actors"];
+                OMDBMovieInformationObject.omdbDirector = returnedData['Director'];
+                OMDBMovieInformationObject.omdbPlot = returnedData['Plot'];
+                OMDBMovieInformationObject.omdbLanguage = returnedData['Language'];
+                OMDBMovieInformationObject.omdbImdbrating = returnedData['imdbRating'];
+                OMDBMovieInformationObject.omdbMetacriticrating = "";
+                OMDBMovieInformationObject.omdbAwards = "";
+                OMDBMovieInformationObject.omdbBoxoffice = "";
 
+                return OMDBMovieInformationObject;
 
-
-
-                overview4 = returnedData["results"][0]["overview"];
-                let overviewDisplay = `<p class="renderedText1">${overview4}</p>`;
-
-
-                movieHTMLString = `                     
-                <p class="heading2">${originalTitle4} &middot; 
-                <span class="lighter">${releaseDate4}</span></p>
-
-                <div class="movieDisplayLeftSide">
-                ${overviewDisplay}</div>
-
-                <div class="movieDisplayRightSide">
-                ${posterDisplay}
-                </div>
-                <div class="quickStatsContainer">
-                   
-
-                    <div class="quickStatBox">
-                        <p class="quickStatsHeading">IMDB Rating</p>
-                        <p id="renderIMDBRatingBox" class="renderedText1">${voteAverage4}</p>
-                    </div>
-                    <div class="quickStatBox">
-                    <p class="quickStatsHeading">Language</p>
-                    <p id="renderYearBox" class="renderedText1">${originalLanguage4}</p>
-                   
-                </div>
-
-                    <div class="quickStatBox">
-                        <p class="quickStatsHeading">Genre</p>
-                        <p id="renderGenreBox" class="renderedText1"></p>
-                    </div>
-                </div>`;
-
-
-                $pageContent.html(movieHTMLString);
-
-                //$pageContent.html(`HELLO WORLD`);
             },
             function (error) {
                 console.log("bad request: ", error);
@@ -144,14 +111,12 @@ function performSearch(event) {
         })
         .then(
             function (returnedData) {
-                let returnedBackdropImage = returnedData["backdrop_path"];
 
+                let returnedBackdropImage = returnedData["backdrop_path"];
                 originalTitle4 = returnedData["results"][0]["original_title"];
                 originalLanguage4 = returnedData["results"][0]["original_language"];
-
                 releaseDate4 = (returnedData["results"][0]["release_date"]).slice(0, 4);
                 voteAverage4 = returnedData["results"][0]["vote_average"];
-
                 posterPath4 = returnedData["results"][0]["poster_path"];
                 let posterDisplay =
                     `<img class="moviePoster" src="https://image.tmdb.org/t/p/w500${posterPath4}"></img>`;
@@ -202,17 +167,10 @@ function performSearch(event) {
 }
 
 
-
-
-
-
 function getMarquee(event) {
-
-
 
     let currentTrendingTitle;
     let trendingStringMiddle = "";
-
     trendingString1End = ` </ul></div></div>`;
 
     $.ajax({
@@ -238,7 +196,7 @@ function getMarquee(event) {
         );
 }
 
-$("form").on('submit', performSearch);
+
 
 
 function renderTrendingPage() {
@@ -340,13 +298,6 @@ function renderHomePage() {
 
 
 
-
-
-
-
-
-
-
 function renderAboutPage() {
     $pageContent.html(`<h1>About Groovy Movie</h1><p class="renderedText1">Thanks for using Groovy Movie! Groovy Movie is the first project by Obi Nwokogba, a Software Engineering student at 
     <a href="https://generalassemb.ly/" target="_blank">General Assembly</a>.<br /><br /> This app's source code is on 
@@ -361,8 +312,6 @@ function renderPeoplePage() {
         .then(
             function (returnedData) {
                 let returnedBackdropImage = returnedData["backdrop_path"];
-
-                //console.log(returnedData);
                 $renderTitleBox.text(returnedData["original_title"]);
 
                 let releaseDate = returnedData["release_date"];
@@ -391,8 +340,6 @@ function getGenre(genreNumber) {
         .then(
             function (returnedData) {
                 let returnedBackdropImage = returnedData["backdrop_path"];
-
-                //console.log(returnedData);
                 $renderTitleBox.text(returnedData["original_title"]);
 
                 let releaseDate = returnedData["release_date"];
@@ -432,8 +379,6 @@ function renderCinemaGridPage() {
                     currentVoteAverage = returnedData["results"][i]["vote_average"];
                     //overview = returnedData["results"][i]["overview"];
                     backdropPath = returnedData["results"][i]["backdrop_path"];
-
-
                     filmGenre1 = "Thriller";
 
                     if (typeof trendingString2 === 'undefined') {
@@ -489,16 +434,16 @@ $(function () {
         direction: 'left'
     }
 
-    //$('.simple-marquee-container').SimpleMarquee(options);
-
     setInterval(function () {
         $('.simple-marquee-container').SimpleMarquee(options);
     }, 1000);
 });
 
+$("form").on('submit', performSearch);
 
 getMarquee();
 renderCinemaGridPage();
+
 
 
 
