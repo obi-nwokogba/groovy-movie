@@ -1,9 +1,3 @@
-// OMDB MOVIE API KEY
-// http://www.omdbapi.com/?apikey=[yourkey]&
-
-// THEMOVIEDB.org
-//https://api.themoviedb.org/3/movie/550?api_key=0153dd9142cbca8ace6559209c3cf1aa
-
 let searchText, trendingString1Start, trendingString1End, trendingString2, trendingString;
 
 const BASE_URL = "https://api.themoviedb.org/3";
@@ -43,22 +37,30 @@ const trendingURL = `https://api.themoviedb.org/3/movie/550?api_key=0153dd9142cb
 
 
 
+// TODO CURRENT
+function performSearch(event) {
 
-function handleGetData(event) {
+    
 
     event.preventDefault();
     searchText = $("#searchBar").val();
 
+    let movieHTMLString = `<div class="movieDisplayContainer"><div class="movieDisplayLeftSide>`;
+    let originalTitle4,backdropPath4, posterPath4, voteAverage4, overview4, releaseDate4;
+
     $.ajax({
-            url: `https://api.themoviedb.org/3/movie/550?api_key=0153dd9142cbca8ace6559209c3cf1aa`
+            url: `https://api.themoviedb.org/3/search/movie?query=${searchText}&api_key=0153dd9142cbca8ace6559209c3cf1aa`
         })
         .then(
             function (returnedData) {
                 let returnedBackdropImage = returnedData["backdrop_path"];
 
                 //console.log(returnedData);
-                $renderTitleBox.text(returnedData["original_title"]);
+                originalTitle4 = returnedData["results"][0]["original_title"];
+                overview4 = returnedData["results"][0]["overview"];
 
+
+                /*
                 let releaseDate = returnedData["release_date"];
                 $renderYearBox.text(releaseDate.substring(0, 4));
                 $renderIMDBRatingBox.text(returnedData["vote_average"]);
@@ -67,6 +69,14 @@ function handleGetData(event) {
                 // Display an Image
                 $moveImageBox1.html(`<img class="mainMovieImage" src="https://image.tmdb.org/t/p/w500${returnedBackdropImage}" alt="movie poster" />`);
                 $renderOverviewBox.text(returnedData["overview"]);
+
+*/
+
+
+                $pageContent.html(`<h1>${originalTitle4}</h1>
+                <p class="renderedText"></p></div><div class="movieDisplayRightSide">Images</div>`);
+
+                //$pageContent.html(`HELLO WORLD`);
             },
             function (error) {
                 console.log("bad request: ", error);
@@ -115,10 +125,7 @@ function getTrending(event) {
         );
 }
 
-$("form").on('submit', handleGetData);
-getTrending();
-
-
+$("form").on('submit', performSearch);
 
 
 function renderTrendingPage() {
@@ -167,9 +174,82 @@ function renderTrendingPage() {
         );
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
 function renderHomePage() {
-    $pageContent.html(`<h1>Welome to Groovy Movie!<br />The place where cinema lives.</h1>`);
-}
+
+    // /discover/movie?primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22
+
+    let homeStringHTML = "";
+    let currentTrendingTitle, currentVoteAverage, overview, backdropPath;
+
+    // THEMOVIEDB.org
+    //https://api.themoviedb.org/3/movie/550?api_key=0153dd9142cbca8ace6559209c3cf1aa
+
+    $.ajax({
+            url: `https://api.themoviedb.org/3/genre/movie/list&api_key=0153dd9142cbca8ace6559209c3cf1aa`
+        })
+        .then(
+            function (returnedData) {
+
+                for (i = 0; i < 19; i++) {
+                    currentTrendingTitle = returnedData["results"][i]["title"];
+                    currentVoteAverage = returnedData["results"][i]["vote_average"];
+                    overview = returnedData["results"][i]["overview"];
+                    backdropPath = returnedData["results"][i]["backdrop_path"];
+
+                    if (typeof trendingString2 === 'undefined') {
+                        //alert("one undefined found!");
+                    } else {
+                        trendingString2 = trendingString2 +
+                            `  
+                            <button class="trendingMovieButton" href="ex1">` +
+                            currentTrendingTitle +
+                            ` <span class="trendingFilmScore">${currentVoteAverage}</span>
+                            
+                            <div class="hiddenContent"> 
+
+                            <img src="https://image.tmdb.org/t/p/w500${backdropPath}" class="trendingImageHidden">
+                            
+                            <p class="trendingText">
+                            ${overview}</p></div>
+                            
+                            </button>`;
+                    }
+                }
+                $pageContent.html(`<h1>Welome to Groovy Movie!<br />The place where cinema lives.</h1><h3>Trending this Week</h3>
+                <p class="renderedText">${trendingString2}</p>`);
+            },
+            function (error) {
+                console.log("bad request: ", error);
+            }
+        );
+} */
+
+
+
+
+
+
+
+
+
 
 function renderAboutPage() {
     $pageContent.html(`<h1>About Groovy Movie</h1><p class="renderedText1">Thanks for using Groovy Movie! Groovy Movie is the first project by Obi Nwokogba, a Software Engineering student at General Assembly.<br /><br /> This app's source code is on 
@@ -204,34 +284,34 @@ function renderPeoplePage() {
 }
 
 
-function getGenre(genreNumber){
-    let genreString ="";
+function getGenre(genreNumber) {
+    let genreString = "";
 
 
 
     $.ajax({
-        url: `https://api.themoviedb.org/3/trending/all/week?api_key=0153dd9142cbca8ace6559209c3cf1aa`
-    })
-    .then(
-        function (returnedData) {
-            let returnedBackdropImage = returnedData["backdrop_path"];
+            url: `https://api.themoviedb.org/3/trending/all/week?api_key=0153dd9142cbca8ace6559209c3cf1aa`
+        })
+        .then(
+            function (returnedData) {
+                let returnedBackdropImage = returnedData["backdrop_path"];
 
-            //console.log(returnedData);
-            $renderTitleBox.text(returnedData["original_title"]);
+                //console.log(returnedData);
+                $renderTitleBox.text(returnedData["original_title"]);
 
-            let releaseDate = returnedData["release_date"];
-            $renderYearBox.text(releaseDate.substring(0, 4));
-            $renderIMDBRatingBox.text(returnedData["vote_average"]);
-            $renderGenreBox.text(returnedData["genres"][0]["name"]);
+                let releaseDate = returnedData["release_date"];
+                $renderYearBox.text(releaseDate.substring(0, 4));
+                $renderIMDBRatingBox.text(returnedData["vote_average"]);
+                $renderGenreBox.text(returnedData["genres"][0]["name"]);
 
-            // Display an Image
-            $moveImageBox1.html(`<img class="mainMovieImage" src="https://image.tmdb.org/t/p/w500${returnedBackdropImage}" alt="movie poster" />`);
-            $renderOverviewBox.text(returnedData["overview"]);
-        },
-        function (error) {
-            console.log("bad request: ", error);
-        }
-    );
+                // Display an Image
+                $moveImageBox1.html(`<img class="mainMovieImage" src="https://image.tmdb.org/t/p/w500${returnedBackdropImage}" alt="movie poster" />`);
+                $renderOverviewBox.text(returnedData["overview"]);
+            },
+            function (error) {
+                console.log("bad request: ", error);
+            }
+        );
 
 
 
@@ -266,13 +346,13 @@ function renderCinemaGridPage() {
                         //alert("one undefined found!");
                     } else {
                         cinemaGridHTMLSequence = cinemaGridHTMLSequence +
-                            `<img src="https://image.tmdb.org/t/p/w500${backdropPath}" class="trendingImageHidden">
+                            `<span class="cinemaGridUnit"><img src="https://image.tmdb.org/t/p/w500${backdropPath}" class="trendingImageHidden">
 
                             <div class="cinemaGridDetails">
                             <span class="cinemaGridDetailBox1">${currentTrendingTitle}</span> 
                             <span class="cinemaGridDetailBox2">${filmGenre1}</span>
                             <span class="trendingFilmScore">${currentVoteAverage}</span>
-                            </div>`;
+                            </div></span>`;
 
                     }
                 }
@@ -340,3 +420,21 @@ $(function () {
 
 //renderTrendingPage();
 renderCinemaGridPage();
+
+
+
+
+
+
+
+
+// OMDB MOVIE API KEY
+// http://www.omdbapi.com/?apikey=[yourkey]&
+
+// THEMOVIEDB.org
+//https://api.themoviedb.org/3/movie/550?api_key=0153dd9142cbca8ace6559209c3cf1aa
+
+
+// $5 PATREON API
+//OMDb API: http://www.omdbapi.com/?i=tt3896198&apikey=f840d131
+//Poster API: http://img.omdbapi.com/?i=tt3896198&h=600&apikey=f840d131

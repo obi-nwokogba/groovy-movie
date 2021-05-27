@@ -80,6 +80,43 @@ body {
     display: block;
 }
 
+
+
+a {
+    color: #FF005A !important;
+    text-decoration: none;
+    /* border-bottom:solid 2px #FF005A; */
+}
+
+a.hover {
+    color: white;
+    background: #464646;
+}
+
+.trendingImageHidden {
+    width: 90%;
+    margin-top: 10px;
+}
+
+.trendingText {
+    width: 90%;
+    font-weight: 300;
+    line-height: 1em;
+    font-size: 1em;
+    text-align: left;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding-bottom: 13px;
+}
+
+.hiddenContent {
+    display: none;
+}
+
+
+
+
+
 header {
     background-color: var(--main-brand-color);
     color: rgba(255, 255, 255, 0.9);
@@ -103,7 +140,7 @@ main {
 
 footer {
     background: rgb(70, 70, 70);
-    font-family: 'Poppins', sans-serif;
+    font-family: 'PT Sans', sans-serif;
     line-height: 0.95em;
 }
 
@@ -121,7 +158,7 @@ footer {
     height: 60px;
     min-height: 60px;
     font-size: 1.3em;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'PT Sans', sans-serif;
 }
 
 #searchButton {
@@ -185,10 +222,11 @@ p.renderedText1 {
     color: rgba(255, 255, 255, 0.9);
 }
 
-.navigationBar > button:active,.navigationBar > button:hover{
-    border-bottom:solid 2px black;
-    background:rgba(255, 255, 255, 0.603);
-    color:black;
+.navigationBar>button:active,
+.navigationBar>button:hover {
+    border-bottom: solid 2px black;
+    background: rgba(255, 255, 255, 0.603);
+    color: black;
 }
 
 form {
@@ -222,7 +260,7 @@ form {
     height: 51px;
     margin-left: -2px;
     border-left: solid 1px #ff005a;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'PT Sans', sans-serif;
     font-size: 0.9em;
 }
 
@@ -286,7 +324,7 @@ header {
     -o-box-sizing: border-box;
     box-sizing: border-box;
     font-family: 'highvoltage', sans-serif;
-    opacity:0.8;
+    opacity: 0.9;
 }
 
 .simple-marquee-container {
@@ -330,7 +368,7 @@ header {
 
 .simple-marquee-container .marquee-content-items {
     display: inline-block;
-    padding: 5px;
+    padding: 4px;
     margin: 0;
     height: 45px;
     position: relative;
@@ -340,9 +378,9 @@ header {
     display: inline-block;
     line-height: 28px;
     color: rgba(255, 255, 255, 0.915);
-    font-family: 'poppins', sans-serif;
-    font-weight:400;
-    font-size:0.9em;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 400;
+    font-size: 0.9em;
 }
 
 .simple-marquee-container .marquee-content-items li:after {
@@ -354,7 +392,8 @@ header {
     display: block;
     width: 100vw;
     background: black;
-    padding: 7px;;
+    padding: 7px;
+    ;
     overflow: hidden;
     margin: 0 auto;
 }
@@ -372,9 +411,9 @@ header {
     border: none;
     line-height: 1.9em;
     margin-bottom: 10px;
-    -webkit-transition:  200ms ease 0.2s;
-    -moz-transition:  200ms ease 0.2s;
-    -o-transition:  200ms ease 0.2s;
+    -webkit-transition: 200ms ease 0.2s;
+    -moz-transition: 200ms ease 0.2s;
+    -o-transition: 200ms ease 0.2s;
     transition: 200ms ease 0.2s;
 }
 
@@ -384,7 +423,6 @@ header {
     padding: 10px;
     font-size: 1.2em;
 }
-
 
 .trendingFilmScore {
     font-family: 'highvoltage', sans-serif;
@@ -398,34 +436,32 @@ header {
     padding: 6px;
 }
 
-
-
-.cinemaGridDetails{
-    margin-top:-35px;
-    background:rgba(0, 0, 0, 0.726);
-    display:block;
-    width:90%;
+.cinemaGridDetails {
+    margin-top: -35px;
+    background: rgba(0, 0, 0, 0.726);
+    display: block;
+    width: 90%;
 }
 
-.cinemaGridDetailBox1{
+.cinemaGridDetailBox1 {
     display: inline-block;
     line-height: 35px;
     color: rgba(255, 255, 255, 0.815);
     font-family: 'highvoltage', sans-serif;
-    background:black;
-    padding-left:10px;
-    padding-right:10px;
-    font-size:1.3em;
+    background: black;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 1.3em;
 }
 
-.cinemaGridDetailBox2{
+.cinemaGridDetailBox2 {
     display: inline-block;
     line-height: 35px;
     color: rgba(255, 255, 255, 0.815);
     font-family: 'highvoltage', sans-serif;
-    background:black;
-    padding-left:10px;
-    padding-right:10px;
+    background: black;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 
@@ -433,6 +469,65 @@ header {
 
 
 
+
+
+@mixin for-phone-only {
+    @media (max-width: 599px) {
+        @content;
+    }
+}
+
+@mixin for-tablet-portrait-up {
+    @media (min-width: 600px) {
+        @content;
+    }
+}
+
+@mixin for-tablet-landscape-up {
+    @media (min-width: 900px) {
+        @content;
+    }
+}
+
+@mixin for-desktop-up {
+    @media (min-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin for-big-desktop-up {
+    @media (min-width: 1800px) {
+        @content;
+    }
+}
+
+
+
+.movieDisplayContainer{
+
+}
+
+.movieDisplayLeftSide{
+border-right:dotted 1px #ededed;
+}
+
+.movieDisplayRightSide{
+    background:black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {}
 
 
 
@@ -443,13 +538,19 @@ header {
 /* MOBILE */
 @media only screen and (max-width: 600px) {
 
+    #cinemaGridContainer {
+        max-width: 200;
+        display: flex;
+        align-items: center;
+    }
+
     #searchBar {
         border: solid 2px rgb(42, 42, 37, 0.9);
         color: #2a2a25;
         border-radius: 20px 0px 0px 20px;
         padding: 15px;
         width: 70%;
-        font-family: 'Poppins', sans-serif;
+        font-family: 'PT Sans', sans-serif;
     }
 
     #searchButton {
@@ -460,7 +561,7 @@ header {
         width: 80px;
         border: none;
         opacity: 0.9;
-        font-family: 'Poppins', sans-serif;
+        font-family: 'PT Sans', sans-serif;
     }
 
     #searchButton:active {
@@ -477,11 +578,18 @@ header {
         padding: 4px 2px 4px 2px;
         border-radius: 26px;
         margin-bottom: 20px;
-        font-family: 'Poppins', sans-serif;
+        font-family: 'PT Sans', sans-serif;
     }
 
     .bottomFooterLogo {
         max-width: 200px;
+    }
+
+
+    .themoviedbLogo.a {
+        max-width: 200px;
+        opacity:0.4;
+        margin-top:-0px;
     }
 
     p.heading2 {
@@ -490,35 +598,21 @@ header {
 }
 
 
-a {
-    color: #FF005A !important;
-    text-decoration: none;
-    /* border-bottom:solid 2px #FF005A; */
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+
+    .cinemaGridUnit{
+        max-width:400px !important;
+        display:inline;
+    }
 }
 
-a.hover {
-    color: white;
-    background: #464646;
-}
-
-
-.trendingImageHidden {
-    width: 90%;
-    margin-top: 10px;
-}
-
-.trendingText {
-    width: 90%;
-    font-weight: 300;
-    line-height: 1em;
-    font-size: 1em;
-    text-align: left;
-    margin: 0 auto;
-    margin-top: 10px;
-    padding-bottom: 13px;
-
-}
-
-.hiddenContent {
-    display: none;
-}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}
