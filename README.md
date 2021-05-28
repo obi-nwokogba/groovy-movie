@@ -2,6 +2,7 @@
 
 A web app for exploring the world of Cinema.
 
+![Groovy Movie](https://imgur.com/download/QsfzS5j)
 
 ## A little background
 I am currently a Software Engineering student at General Assembly, and recently we were introduced to the world of connecting APIs, and one of my instructors told me about TheMovieDB.org's API, and after looking at it, it was a film lover's dream come true - having all that information on movies, series, actors, directors, the Box Office, new releases - all waiting to be presented in a meaningful way to the next person eager to push the 'PLAY' button on their remote control! As a fan of well-made movies, this is my effort to bring you closer to the big screen.
@@ -24,9 +25,10 @@ I am currently a Software Engineering student at General Assembly, and recently 
 
 ## Getting Started
 
-[Click here](![screenshot](https://groovym.com/)) to see the working app!
+Please [CLICK HERE](https://groovymovie.netlify.app/) to launch the live, working app!
 
 ## Future Enhancements
-- Allow users create accounts.
+- Allow users create accounts and gradually build a community.
 - Allow users post comments under each movie and discuss.
-- Allow a user save their favourite movies and series.
+- Allow a user save their favorite movies and series.
+- Clicking on the top marquee should automatically pull up that movie's information
