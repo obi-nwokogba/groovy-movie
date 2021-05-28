@@ -20,6 +20,8 @@ I am currently a Software Engineering student at General Assembly, and recently 
 ### Screenshots
 ![Screenshot of Groovy Movie](https://imgur.com/download/vuScdln)
 
+![Searching for a movie - V for Vendetta](https://imgur.com/download/jEPtucV)
+
 ## Wireframe
 ![Wireframe of Cinema Grid Page](https://imgur.com/download/2s6hagT)
 
