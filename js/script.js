@@ -334,8 +334,8 @@ function renderHomePage() {
 function renderAboutPage() {
     $pageContent.html(`<h1>About Groovy Movie</h1><p class="renderedText1">Thanks for using Groovy Movie! Groovy Movie is the first project by Obi Nwokogba, a Software Engineering student at 
     <a href="https://generalassemb.ly/" target="_blank">General Assembly</a>.<br /><br /> This app's source code is on 
-    <a href="" target="_blank">Github</a>, and some technologies used in this app are Javascript, CSS, HTML, jQUery, Bootstrap, and the information on this site is all courtesy of 
-    <a href="https://developers.themoviedb.org/3/people/get-popular-people" target="_blank">TheMovieDB.org's excellent and free API.</p>`);
+    <a href="" target="_blank">Github</a>, and some technologies used in this app are Javascript, CSS, HTML, jQuery, Bootstrap and this <a href="https://www.jqueryscript.net/demo/jQuery-Plugin-For-Horizontal-Text-Scrolling-Simple-Marquee/" target="_blank">jQuery Marquee</a> plugin. The information on this site is all courtesy of 
+    <a href="https://developers.themoviedb.org" target="_blank">TheMovieDB.org's excellent and free API.</a> and the <a href="https://www.omdbapi.com/" target="_blank">OMDB API also</a></p>`);
 }
 
 function renderPeoplePage() {
