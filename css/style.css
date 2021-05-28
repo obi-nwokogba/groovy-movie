@@ -80,6 +80,7 @@ body {
     margin: 0 auto;
     display: block;
     width: 220px;
+    margin-bottom:45px;
 }
 
 
@@ -174,7 +175,8 @@ footer {
     border: none;
     min-height: 45px;
     font-size: 1.3em;
-    margin-top:-10px;
+    margin-top:0px;
+    margin-left:-20px;
 
 }
 
@@ -213,7 +215,7 @@ p.renderedText1 {
     font-family: 'Newsreader', serif;
     font-size: 22px;
     padding: 0px !important;
-    line-height: 1.1em;
+    line-height: 1.2em;
 }
 
 .bottomFooterLogo {
@@ -500,9 +502,8 @@ header {
 
 
 /* RESPONSIVE BREAKPOINTS Extra small devices (phones, 600px and down) */
+/* FIRST BREAKPOINT */
 @media only screen and (max-width: 600px) {
-
-
 
     p.renderedText1 {
         font-family: 'Newsreader', serif;
@@ -518,7 +519,7 @@ header {
 
     form {
         display: inline;
-
+        margin-top:20px;
     }
 
     #cinemaGridContainer {
@@ -528,12 +529,13 @@ header {
     }
 
     #searchBar {
-        border: solid 2px rgb(42, 42, 37, 0.9);
+        border: solid 1px rgba(45, 45, 45, 0.9);
         color: #2a2a25;
         border-radius: 7px 7px 7px 7px;
         padding: 15px;
-        width: 220px;
+        width: 288px;
         font-family: 'PT Sans', sans-serif;
+        margin-top:2px;
     }
 
     #searchButton {
@@ -545,6 +547,9 @@ header {
         border: none;
         opacity: 1;
         font-family: 'PT Sans', sans-serif;
+        margin-left:-70px;
+        height:45px;
+        margin-top:9px;
     }
 
     #searchButton:active {
@@ -553,24 +558,27 @@ header {
     }
 
     form {
-        border: solid 4px rgba(255, 255, 255, 0.23);
+        border: solid 7px rgba(255, 255, 255, 0.23);
         display: block;
-        width: 310px;
+        width: 313px;
         margin: 0 auto;
         margin-top: -30px;
-        padding: 4px;
+        padding: 6px;
         border-radius: 14px;
         margin-bottom: 20px;
         font-family: 'PT Sans', sans-serif;
         display: flex;
         flex-direction: row;
-
     }
 
     .bottomFooterLogo {
         max-width: 200px;
     }
 
+    #mainLogo{
+        width:180px;
+        margin-top:25px;
+    }
 
     #themoviedblogo {
         max-width: 200px;
@@ -590,9 +598,16 @@ header {
     }
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {}
 
+/* SECOND BREAKPOINT */
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+    
+}
+
+
+ /* THIRD BREAKPOINT */
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
 
@@ -608,14 +623,8 @@ header {
     }
 
     #searchBar{
-        border:solid 3px #112544;
-        
+        border:solid 3px #112544;  
     }
-
-    form{
-
-    }
-
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -646,5 +655,12 @@ header {
     .cinemaGridDetailBox1 {
 
         font-size: 1.8em;
+    }
+
+    .renderedText1{
+        max-width: 900px;
+        display:block;
+        margin:0 auto;
+        line-height:20px;
     }
 }
