@@ -27,6 +27,12 @@ I am currently a Software Engineering student at General Assembly, and recently 
 
 Please [click HERE](https://groovymovie.netlify.app/) to launch the live, working app!
 
+## User Stories
+- I want to be able to discover really good movies easily.
+- I like to get the inner scoop on how my favorite shows are made.
+- I think people who love a series and are watching it should be able to talk about it. 
+- I need film rating that are accurate and not bloated or misleading.
+
 ## Future Enhancements
 - Allow users create accounts and gradually build a community.
 - Allow users post comments under each movie and discuss.
