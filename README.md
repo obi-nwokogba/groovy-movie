@@ -10,10 +10,12 @@ I am currently a Software Engineering student at General Assembly, and recently 
 ## Technologies
 - HTML5
 - CSS3
-- Javascript/jQuery
+- Javascript
+- jQuery
 - Bootstrap
-- https://www.jqueryscript.net/demo/jQuery-Plugin-For-Horizontal-Text-Scrolling-Simple-Marquee/
+- [jQuery Marquee Plugin](https://www.jqueryscript.net/demo/jQuery-Plugin-For-Horizontal-Text-Scrolling-Simple-Marquee/)
 - [TMDB API - The Movie DB](http://themoviedb.org/settings/api)
+- [OMDB API](https://www.omdbapi.com/)
 
 ## Screenshots
 
@@ -21,7 +23,7 @@ I am currently a Software Engineering student at General Assembly, and recently 
 ![screenshot](http://obipix.com/old/wallpapers/obipix_sunburst_2e6c55.png)
 
 ### Images of Working App
-
+![Screenshot of Groovy Movie](https://imgur.com/download/vuScdln)
 
 ## Getting Started
 

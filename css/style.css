@@ -74,6 +74,7 @@ body {
     height: 100%;
     font-family: 'Newsreader', serif;
     color: #2A2A25;
+    border-top:solid 3px black;
 }
 
 #mainLogo {
@@ -113,7 +114,7 @@ a.hover {
 }
 
 .hiddenContent {
-    display: none;
+    /* display: none; */
 }
 
 .moviePoster {}
@@ -546,6 +547,7 @@ header {
         width: 288px;
         font-family: 'PT Sans', sans-serif;
         margin-top:1px;
+        font-size:16px;
     }
 
     #searchButton {

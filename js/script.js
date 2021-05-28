@@ -35,6 +35,7 @@ function getAdditionalMovieInfo(inputMovieTitle, inputMovieYear) {
         title: "",
         cast: "",
         director: "",
+        genre: "",
         plot: "",
         language: "",
         imdbrating: "",
@@ -63,12 +64,15 @@ function getAdditionalMovieInfo(inputMovieTitle, inputMovieYear) {
                 OMDBMovieInformationObject.omdbTitle = returnedData["Title"];
                 OMDBMovieInformationObject.omdbCast = returnedData["Actors"];
                 OMDBMovieInformationObject.omdbDirector = returnedData['Director'];
+                OMDBMovieInformationObject.omdbGenre = returnedData['Genre'];
                 OMDBMovieInformationObject.omdbPlot = returnedData['Plot'];
                 OMDBMovieInformationObject.omdbLanguage = returnedData['Language'];
                 OMDBMovieInformationObject.omdbImdbrating = returnedData['imdbRating'];
-                OMDBMovieInformationObject.omdbMetacriticrating = returnedData['imdbRating'];
+                OMDBMovieInformationObject.omdbMetacriticrating = returnedData['Metascore'];
                 OMDBMovieInformationObject.omdbAwards = returnedData['Awards'];
                 OMDBMovieInformationObject.omdbBoxoffice = returnedData['BoxOffice'];
+
+                //alert(`${OMDBMovieInformationObject.omdbCast}`);
 
                 //alert(OMDBMovieInformationObject.omdbImdbrating);
                 return OMDBMovieInformationObject;
@@ -85,10 +89,11 @@ function performSearch(event) {
 
     event.preventDefault();
     searchText = $("#searchBar").val();
+    $('#searchBar').val("");
 
     let movieHTMLString = `<div class="movieDisplayContainer"><div class="movieDisplayLeftSide>`;
     let originalTitle4, backdropPath4, posterPath4, voteAverage4, overview4, releaseDate4,
-        originalLanguage4;
+        originalLanguage4, OMDBMovieInfo;
 
     $.ajax({
             url: `https://api.themoviedb.org/3/search/movie?query=${searchText}&api_key=0153dd9142cbca8ace6559209c3cf1aa`
@@ -99,19 +104,23 @@ function performSearch(event) {
                 let returnedBackdropImage = returnedData["backdrop_path"];
                 originalTitle4 = returnedData["results"][0]["original_title"];
                 originalLanguage4 = returnedData["results"][0]["original_language"];
-                releaseDate4 = (returnedData["results"][0]["release_date"]).slice(0, 4);
+
+                releaseDate4 = returnedData["results"][0]["release_date"].slice(0, 4);
                 voteAverage4 = returnedData["results"][0]["vote_average"];
                 posterPath4 = returnedData["results"][0]["poster_path"];
+
                 let posterDisplay =
                     `<img class="moviePoster" src="https://image.tmdb.org/t/p/w500${posterPath4}"></img>`;
 
                 backdropPath4 = returnedData["results"][0]["backdrop_path"];
                 let backdropDisplay = `<img src="https://image.tmdb.org/t/p/w500${backdropPath4}"></img>`;
-
+                
                 overview4 = returnedData["results"][0]["overview"];
                 let overviewDisplay = `<p class="renderedText1">${overview4}</p>`;
 
-                let OMDBMovieInfo = getAdditionalMovieInfo(originalTitle4, releaseDate4);
+                OMDBMovieInfo = getAdditionalMovieInfo(originalTitle4, releaseDate4);
+
+                alert(OMDBMovieInfo.omdbCast);
 
                 //console.log(OMDBMovieInfo);
                 //alert(OMDBMovieInfo);
@@ -233,8 +242,8 @@ function renderTrendingPage() {
                             `  
                             
                             <button class="trendingMovieButton">` +
-                            currentTrendingTitle +
-                            ` <span class="trendingFilmScore">${currentVoteAverage}</span>
+                            `<span class="trendingTitle">${currentTrendingTitle}</title
+                            <span class="trendingFilmScore">${currentVoteAverage}</span>
                             
                             <div class="hiddenContent"> 
 
