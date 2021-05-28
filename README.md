@@ -17,13 +17,11 @@ I am currently a Software Engineering student at General Assembly, and recently 
 - [TMDB API - The Movie DB](http://themoviedb.org/settings/api)
 - [OMDB API](https://www.omdbapi.com/)
 
-## Screenshots
-
-### Wireframes
-![screenshot](http://obipix.com/old/wallpapers/obipix_sunburst_2e6c55.png)
-
-### Images of Working App
+### Screenshots
 ![Screenshot of Groovy Movie](https://imgur.com/download/vuScdln)
+
+## Wireframe
+![Wireframe of Cinema Grid Page](https://imgur.com/download/2s6hagT)
 
 ## Getting Started
 
@@ -34,3 +32,4 @@ Please [click HERE](https://groovymovie.netlify.app/) to launch the live, workin
 - Allow users post comments under each movie and discuss.
 - Allow a user save their favorite movies and series.
 - Clicking on a title at the top marquee should automatically pull up that movie's information.
+- Allow users create lists, or probably broadcast a live status on what they might be watching at the moment.
