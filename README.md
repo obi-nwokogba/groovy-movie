@@ -27,10 +27,10 @@ I am currently a Software Engineering student at General Assembly, and recently 
 
 ## Getting Started
 
-Please [CLICK HERE](https://groovymovie.netlify.app/) to launch the live, working app!
+Please [click HERE](https://groovymovie.netlify.app/) to launch the live, working app!
 
 ## Future Enhancements
 - Allow users create accounts and gradually build a community.
 - Allow users post comments under each movie and discuss.
 - Allow a user save their favorite movies and series.
-- Clicking on the top marquee should automatically pull up that movie's information
+- Clicking on a title at the top marquee should automatically pull up that movie's information.

@@ -17,11 +17,11 @@ const $pageContent = $("#pageContent");
 const trendingURL = `https://api.themoviedb.org/3/movie/550?api_key=0153dd9142cbca8ace6559209c3cf1aa/trending/{media_type}/{time_window}`;
 
 // This empty global variable is used for moving around extra movie info from OMDB within the app
-var omdbTitle, omdbCast, omdbDirector, omdbGenre, omdbPlot, omdbLanguage, omdbImdbrating, omdbMetascore, omdbAwards, omdbBoxoffice, omdbActors;
+let omdbTitle, omdbCast, omdbDirector, omdbGenre, omdbPlot, omdbLanguage, omdbImdbrating, omdbMetascore, omdbAwards, omdbBoxoffice, omdbActors, currentSearchTitle;
 
 
 
-function getAdditionalMovieInfo(inputMovieTitle, inputMovieYear) {
+function getAdditionalMovieInfo(inputTitle, inputYear) {
 
     // http://www.omdbapi.com/?t=matrix&y=1999&plot=full
 
@@ -29,10 +29,12 @@ function getAdditionalMovieInfo(inputMovieTitle, inputMovieYear) {
     // TMDB data with data from OMDB. This function returns a JS object with 9 fields.
 
     $.ajax({
-            url: `http://www.omdbapi.com/?t=${inputMovieTitle}&y=${inputMovieYear}&plot=full&i=tt3896198&apikey=f840d131`
+            url: `http://www.omdbapi.com/?t=${icurrentSearchTitle}&y=${inputYear}&plot=full&i=tt3896198&apikey=f840d131`
         })
         .then(
             function (returnedData) {
+
+                //alert("hahahah" + returnedData);
 
                 /* VARIABLES TO save and render from JSON returned
                 1. omdbTitle, 
@@ -56,8 +58,8 @@ function getAdditionalMovieInfo(inputMovieTitle, inputMovieYear) {
                 omdbAwards = returnedData['Awards'];
                 omdbBoxoffice = returnedData['BoxOffice'];
                 omdbActors = returnedData['Actors'];
-                alert(omdbActors);
-                alert(omdbGenre);
+                //(omdbActors);
+                //alert(omdbGenre);
             },
             function (error) {
                 console.log("bad request: ", error);
@@ -77,7 +79,6 @@ function performSearch(event) {
     let originalTitle4, backdropPath4, posterPath4, voteAverage4, overview4, releaseDate4,
         originalLanguage4, OMDBMovieInfo;
 
-
     $.ajax({
             url: `https://api.themoviedb.org/3/search/movie?query=${searchText}&api_key=0153dd9142cbca8ace6559209c3cf1aa`
         })
@@ -86,6 +87,8 @@ function performSearch(event) {
 
                 let returnedBackdropImage = returnedData["backdrop_path"];
                 originalTitle4 = returnedData["results"][0]["original_title"];
+                currentSearchTitle = originalTitle4;
+
                 originalLanguage4 = returnedData["results"][0]["original_language"];
 
                 releaseDate4 = returnedData["results"][0]["release_date"].slice(0, 4);
@@ -112,7 +115,7 @@ function performSearch(event) {
                 8. omdbAwards
                 9. omdbBoxoffice*/
 
-                alert(omdbBoxoffice);
+                //alert(omdbBoxoffice);
 
                 movieHTMLString = `                     
                 <p class="heading2">${originalTitle4} &middot; 
@@ -120,7 +123,6 @@ function performSearch(event) {
 
                 <div class="movieDisplayLeftSide">
                 ${overviewDisplay}
-                
                 
                 </div>
 
@@ -144,7 +146,6 @@ function performSearch(event) {
                 </div>`;
 
                 $pageContent.html(movieHTMLString);
-
             },
             function (error) {
                 console.log("bad request: ", error);
@@ -204,8 +205,8 @@ function renderTrendingPage() {
                         trendingString2 = trendingString2 +
                             `  
                             
-                            <button class="trendingMovieButton">` +
-                            `<span class="trendingTitle">${currentTrendingTitle}</title
+                            <button class="trendingMovieButton">
+                            <span class="trendingTitle">${currentTrendingTitle}</span>
                             <span class="trendingFilmScore">${currentVoteAverage}</span>
                             
                             <div class="hiddenContent"> 
@@ -253,8 +254,8 @@ function renderHomePage() {
                         trendingString2 = trendingString2 +
                             `<button class="trendingMovieButton">
                             <span class="trendingTitle">${currentTrendingTitle}</span>
-
-                            <span class="trendingFilmScore">${currentVoteAverage}</span>
+                        
+                            <span class="trendingFilmScore lighter">${currentVoteAverage}</span>
                             
                             <div class="hiddenContent"> 
 
