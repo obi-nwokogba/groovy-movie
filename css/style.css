@@ -124,9 +124,10 @@ span.trendingTitle{
 
 .trendingFilmScore {
     font-family: 'highvoltage', sans-serif;
-    color: rgb(235, 235, 235);
+    color: rgb(245, 245, 245);
     border-radius: 50%;
     background-color: #31312C;
+    background-color:#3C81EF;
     font-size: 17px;
     height: 35px;
     width: 35px;
@@ -443,6 +444,7 @@ header {
     -o-transition: 200ms ease 0.2s;
     transition: 200ms ease 0.2s;
     border-left:solid 5px #ABC9F8;
+    padding-top:13px;
 }
 
 .trendingMovieButton:hover {

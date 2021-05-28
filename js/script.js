@@ -365,11 +365,12 @@ function renderCinemaGridPage() {
                         //alert("one undefined found!");
                     } else {
                         cinemaGridHTMLSequence = cinemaGridHTMLSequence +
-                            `<span class="cinemaGridUnit"><img src="https://image.tmdb.org/t/p/w500${backdropPath}" class="trendingImageHidden">
+                            `<span class="cinemaGridUnit">
+                            <img src="https://image.tmdb.org/t/p/w500${backdropPath}" class="trendingImageHidden">
 
                             <div class="cinemaGridDetails">
                             <span class="cinemaGridDetailBox1">${currentTrendingTitle}</span> 
-                            <span class="cinemaGridDetailBox2">${filmGenre1}</span>
+                            <span class="cinemaGridDetailBox2"></span>
                             <span class="trendingFilmScore">${currentVoteAverage}</span>
                             </div></span>`;
 
