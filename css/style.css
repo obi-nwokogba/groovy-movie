@@ -79,6 +79,7 @@ body {
 #mainLogo {
     margin: 0 auto;
     display: block;
+    width: 220px;
 }
 
 
@@ -140,9 +141,10 @@ main {
 }
 
 footer {
-    background: rgb(70, 70, 70);
+    background: rgb(49, 49, 49);
     font-family: 'PT Sans', sans-serif;
     line-height: 0.95em;
+    border-top: solid 12px #ff005a;
 }
 
 .footerContainer {
@@ -164,14 +166,15 @@ footer {
 
 
 #searchButton {
-    background: #224A89;
+    background: #2B5CAB;
     /* border-radius: 20px 0px 20px 20px; */
     padding: 15px;
     color: white;
-    width: 105px;
+    width: 90px;
     border: none;
-    min-height: 60px;
+    min-height: 45px;
     font-size: 1.3em;
+    margin-top:-10px;
 
 }
 
@@ -214,11 +217,10 @@ p.renderedText1 {
 }
 
 .bottomFooterLogo {
-    opacity: 0.2;
+    opacity: 0.4;
     margin: 0 auto;
     display: block;
-    margin-bottom: -30px;
-    margin-top: -20px
+    margin-top: 0px
 }
 
 .navigationBar>button {
@@ -245,9 +247,10 @@ form {
     display: block;
     width: 523px;
     margin: 0 auto;
-    margin-top: -15px;
+    margin-top: 15px;
     padding: 4px;
     border-radius: 23px;
+
 }
 
 #searchBar {
@@ -337,7 +340,7 @@ header {
 
 .simple-marquee-container {
     width: 100%;
-    background: rgb(73, 73, 73);
+    background: #1A3766;
     float: left;
     display: inline-block;
     overflow: hidden;
@@ -350,7 +353,7 @@ header {
 
 .simple-marquee-container .marquee-sibling {
     padding: 0;
-    background: rgb(61, 61, 61);
+    background: #112544;
     width: 60px;
     height: 45px;
     line-height: 42px;
@@ -385,7 +388,7 @@ header {
 .simple-marquee-container .marquee-content-items li {
     display: inline-block;
     line-height: 28px;
-    color: rgba(255, 255, 255, 0.915);
+    color: rgba(255, 255, 255, 0.855);
     font-family: 'PT Sans', sans-serif;
     font-weight: 400;
     font-size: 0.9em;
@@ -394,14 +397,14 @@ header {
 .simple-marquee-container .marquee-content-items li:after {
     content: "|";
     margin: 0 1em;
+    opacity: 0.3;
 }
 
 .content {
     display: block;
     width: 100vw;
-    background: black;
-    padding: 7px;
-    ;
+    background: rgb(36, 36, 36);
+    padding: 2px;
     overflow: hidden;
     margin: 0 auto;
 }
@@ -430,8 +433,7 @@ header {
     color: white;
     padding: 10px;
     font-size: 1.2em;
-    border-radius:15px;
-    
+    border-radius: 15px;
 }
 
 .trendingFilmScore {
@@ -443,7 +445,7 @@ header {
     height: 35px;
     width: 35px;
     min-height: 35px;
-    min-width:35px;
+    min-width: 35px;
     padding: 6px;
 }
 
@@ -490,17 +492,9 @@ header {
     flex: 1;
 }
 
-
 .quickStatBox {
     margin-left: 10px;
 }
-
-
-
-
-
-
-
 
 
 
@@ -543,13 +537,13 @@ header {
     }
 
     #searchButton {
-        background:#2A406D;
+        background: #336FCD;
         border-radius: 7px 7px 7px 7px;
         padding: 10px;
         color: white;
-        width: 70px;
+        width: 60px;
         border: none;
-        opacity: 0.9;
+        opacity: 1;
         font-family: 'PT Sans', sans-serif;
     }
 
@@ -568,9 +562,9 @@ header {
         border-radius: 14px;
         margin-bottom: 20px;
         font-family: 'PT Sans', sans-serif;
-        display:flex;
-        flex-direction:row;
-        
+        display: flex;
+        flex-direction: row;
+
     }
 
     .bottomFooterLogo {
@@ -578,10 +572,10 @@ header {
     }
 
 
-    .themoviedbLogo.a {
+    #themoviedblogo {
         max-width: 200px;
         opacity: 0.4;
-        margin-top: -0px;
+        margin-top: 0px;
     }
 
     p.heading2 {
@@ -596,57 +590,57 @@ header {
     }
 }
 
-
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {}
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {}
+@media only screen and (min-width: 768px) {
+
+    #mainLogo {
+        width: 200px;
+        margin-top: 40px;
+    }
+
+    #searchButton {
+        margin-left: -102px;
+        height: 34px;
+        padding: 10px;
+    }
+
+    #searchBar{
+        border:solid 3px #112544;
+        
+    }
+
+    form{
+
+    }
+
+}
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-
 
     .cinemaGridUnit {
         max-width: 400px !important;
         display: inline;
     }
 
-
-    #searchBar{
-
+    #mainLogo {
+        width: 200px;
+        margin-top: 20px;
     }
-
-    #searchButton{
-
-    }
-
-    form{
-        
-    }
-
-    #mainLogo{
-        width:200px;
-    }
-
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
 
+    #mainLogo {
+        width: 230px;
+    }
+
     .navigationBar>button {
-        font-size:1.2em;
-    }
-
-    #searchBar{
-
-    }
-
-    #searchButton{
-
-    }
-    form{
-
+        font-size: 1.2em;
     }
 
     .cinemaGridDetailBox1 {

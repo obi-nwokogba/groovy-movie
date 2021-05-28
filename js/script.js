@@ -129,12 +129,45 @@ function performSearch(event) {
 
                 let OMDBMovieInfo = getAdditionalMovieInfo(originalTitle4, releaseDate4);
 
+                /* VARIABLES available in the OMDBMovieInfo 
+                1. omdbTitle, 
+                2. omdbCast,
+                3. omdbDirector, 
+                4.omdbPlot,
+                5. omdbLanguage,
+                6. omdbImdbrating,
+                7. omdbMetacriticrating
+                8. omdbAwards
+                9. omdbBoxoffice*/
+
                 movieHTMLString = `                     
                 <p class="heading2">${originalTitle4} &middot; 
                 <span class="lighter">${releaseDate4}</span></p>
 
                 <div class="movieDisplayLeftSide">
-                ${overviewDisplay}</div>
+                ${overviewDisplay}
+                
+                <br />
+
+                ${OMDBMovieInfo.omdbCast}
+
+                <br /><br />
+
+
+
+                ${OMDBMovieInfo.omdbImdbrating}
+
+                <br /><br />
+
+
+                <br />
+
+                <br />
+
+                
+                
+                
+                </div>
 
                 <div class="movieDisplayRightSide">
                 ${posterDisplay}
