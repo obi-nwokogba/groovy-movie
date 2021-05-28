@@ -1,5 +1,6 @@
 let searchText, trendingString1Start, trendingString1End, trendingString2, trendingString;
 
+// STATE VARIABLES
 const BASE_URL = "https://api.themoviedb.org/3";
 const TRENDING_BASE_URL = "https://api.themoviedb.org/3/trending/day";
 const TRENDING_BASE_URL2 = "https://api.themoviedb.org/3/trending";
@@ -15,13 +16,8 @@ const $trendingBox = $("#trendingBox");
 const $pageContent = $("#pageContent");
 const trendingURL = `https://api.themoviedb.org/3/movie/550?api_key=0153dd9142cbca8ace6559209c3cf1aa/trending/{media_type}/{time_window}`;
 
-
-
-
-
-
-
-
+// This empty global variable is used for moving around extra movie info from OMDB within the app
+var omdbTitle, omdbCast, omdbDirector, omdbGenre, omdbPlot, omdbLanguage, omdbImdbrating, omdbMetascore, omdbAwards, omdbBoxoffice, omdbActors;
 
 
 
@@ -31,21 +27,9 @@ function getAdditionalMovieInfo(inputMovieTitle, inputMovieYear) {
 
     // Since the OMDB single movie search returns more information fields, lets suppement our
     // TMDB data with data from OMDB. This function returns a JS object with 9 fields.
-    let OMDBMovieInformationObject = {
-        title: "",
-        cast: "",
-        director: "",
-        genre: "",
-        plot: "",
-        language: "",
-        imdbrating: "",
-        metacriticrating: "",
-        awards: "",
-        boxoffice: ""
-    };
 
     $.ajax({
-            url: `http://www.omdbapi.com/?t=matrix&y=1999&plot=full&i=tt3896198&apikey=f840d131`
+            url: `http://www.omdbapi.com/?t=${inputMovieTitle}&y=${inputMovieYear}&plot=full&i=tt3896198&apikey=f840d131`
         })
         .then(
             function (returnedData) {
@@ -61,21 +45,19 @@ function getAdditionalMovieInfo(inputMovieTitle, inputMovieYear) {
                 8. omdbAwards
                 9. omdbBoxoffice*/
 
-                OMDBMovieInformationObject.omdbTitle = returnedData["Title"];
-                OMDBMovieInformationObject.omdbCast = returnedData["Actors"];
-                OMDBMovieInformationObject.omdbDirector = returnedData['Director'];
-                OMDBMovieInformationObject.omdbGenre = returnedData['Genre'];
-                OMDBMovieInformationObject.omdbPlot = returnedData['Plot'];
-                OMDBMovieInformationObject.omdbLanguage = returnedData['Language'];
-                OMDBMovieInformationObject.omdbImdbrating = returnedData['imdbRating'];
-                OMDBMovieInformationObject.omdbMetacriticrating = returnedData['Metascore'];
-                OMDBMovieInformationObject.omdbAwards = returnedData['Awards'];
-                OMDBMovieInformationObject.omdbBoxoffice = returnedData['BoxOffice'];
-
-                //alert(`${OMDBMovieInformationObject.omdbCast}`);
-
-                //alert(OMDBMovieInformationObject.omdbImdbrating);
-                return OMDBMovieInformationObject;
+                omdbTitle = returnedData["Title"];
+                omdbCast = returnedData["Director"];
+                omdbDirector = returnedData['Director'];
+                omdbGenre = returnedData['Genre'];
+                omdbPlot = returnedData['Plot'];
+                omdbLanguage = returnedData['Language'];
+                omdbImdbrating = returnedData['imdbRating'];
+                omdbMetascore = returnedData['Metascore'];
+                omdbAwards = returnedData['Awards'];
+                omdbBoxoffice = returnedData['BoxOffice'];
+                omdbActors = returnedData['Actors'];
+                alert(omdbActors);
+                alert(omdbGenre);
             },
             function (error) {
                 console.log("bad request: ", error);
@@ -94,6 +76,7 @@ function performSearch(event) {
     let movieHTMLString = `<div class="movieDisplayContainer"><div class="movieDisplayLeftSide>`;
     let originalTitle4, backdropPath4, posterPath4, voteAverage4, overview4, releaseDate4,
         originalLanguage4, OMDBMovieInfo;
+
 
     $.ajax({
             url: `https://api.themoviedb.org/3/search/movie?query=${searchText}&api_key=0153dd9142cbca8ace6559209c3cf1aa`
@@ -114,16 +97,9 @@ function performSearch(event) {
 
                 backdropPath4 = returnedData["results"][0]["backdrop_path"];
                 let backdropDisplay = `<img src="https://image.tmdb.org/t/p/w500${backdropPath4}"></img>`;
-                
+
                 overview4 = returnedData["results"][0]["overview"];
                 let overviewDisplay = `<p class="renderedText1">${overview4}</p>`;
-
-                OMDBMovieInfo = getAdditionalMovieInfo(originalTitle4, releaseDate4);
-
-                alert(OMDBMovieInfo.omdbCast);
-
-                //console.log(OMDBMovieInfo);
-                //alert(OMDBMovieInfo);
 
                 /* VARIABLES available in the OMDBMovieInfo 
                 1. omdbTitle, 
@@ -136,6 +112,8 @@ function performSearch(event) {
                 8. omdbAwards
                 9. omdbBoxoffice*/
 
+                alert(omdbBoxoffice);
+
                 movieHTMLString = `                     
                 <p class="heading2">${originalTitle4} &middot; 
                 <span class="lighter">${releaseDate4}</span></p>
@@ -143,22 +121,7 @@ function performSearch(event) {
                 <div class="movieDisplayLeftSide">
                 ${overviewDisplay}
                 
-                <br />
-
-                ${OMDBMovieInfo.omdbCast}
-
-                <br /><br />
-
-
-
-                ${OMDBMovieInfo.omdbImdbrating}
-
-                <br /><br />
-
-
-                <br /><br />
-
-
+                
                 </div>
 
                 <div class="movieDisplayRightSide">
@@ -176,7 +139,7 @@ function performSearch(event) {
                 </div>
                     <div class="quickStatBox">
                         <p class="quickStatsHeading">Genre</p>
-                        <p id="renderGenreBox" class="renderedText1"></p>
+                        <p id="renderGenreBox" class="renderedText1">${omdbBoxoffice}</p>
                     </div>
                 </div>`;
 
@@ -254,7 +217,7 @@ function renderTrendingPage() {
                             </button>`;
                     }
                 }
-                $pageContent.html(`<h1>Trending this Week</h1>
+                $pageContent.html(`<h1>trending this week</h1>
                 <p class="renderedText">${trendingString2}</p>`);
             },
             function (error) {
@@ -288,10 +251,10 @@ function renderHomePage() {
                         //alert("one undefined found!");
                     } else {
                         trendingString2 = trendingString2 +
-                            `  
-                            <button class="trendingMovieButton" href="ex1">` +
-                            currentTrendingTitle +
-                            ` <span class="trendingFilmScore">${currentVoteAverage}</span>
+                            `<button class="trendingMovieButton">
+                            <span class="trendingTitle">${currentTrendingTitle}</span>
+
+                            <span class="trendingFilmScore">${currentVoteAverage}</span>
                             
                             <div class="hiddenContent"> 
 
@@ -315,7 +278,7 @@ function renderHomePage() {
 
 
 function renderAboutPage() {
-    $pageContent.html(`<h1>About Groovy Movie</h1><p class="renderedText1">Thanks for using Groovy Movie! Groovy Movie is the first project by Obi Nwokogba, a Software Engineering student at 
+    $pageContent.html(`<h1>about Groovy Movie</h1><p class="renderedText1">Thanks for using Groovy Movie! Groovy Movie is the first project by Obi Nwokogba, a Software Engineering student at 
     <a href="https://generalassemb.ly/" target="_blank">General Assembly</a>.<br /><br /> This app's source code is on 
     <a href="" target="_blank">Github</a>, and some technologies used in this app are Javascript, CSS, HTML, jQuery, Bootstrap and this <a href="https://www.jqueryscript.net/demo/jQuery-Plugin-For-Horizontal-Text-Scrolling-Simple-Marquee/" target="_blank">jQuery Marquee</a> plugin. The information on this site is all courtesy of 
     <a href="https://developers.themoviedb.org" target="_blank">TheMovieDB.org's excellent and free API.</a> and the <a href="https://www.omdbapi.com/" target="_blank">OMDB API also</a></p>`);
@@ -385,7 +348,7 @@ function renderCinemaGridPage() {
     let currentTrendingTitle, currentVoteAverage, overview, backdropPath;
 
     $.ajax({
-            url: `https://api.themoviedb.org/3/trending/all/week?api_key=0153dd9142cbca8ace6559209c3cf1aa`
+            url: `https://api.themoviedb.org/3/trending/all/day?api_key=0153dd9142cbca8ace6559209c3cf1aa`
         })
         .then(
             function (returnedData) {

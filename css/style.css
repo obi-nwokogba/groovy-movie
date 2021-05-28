@@ -104,22 +104,36 @@ a.hover {
 
 .trendingText {
     width: 90%;
-    font-weight: 300;
-    line-height: 1em;
-    font-size: 1em;
+    font-weight: 400;
+    line-height: 1.2em;
+    font-size: 1.1em;
     text-align: left;
     margin: 0 auto;
     margin-top: 10px;
     padding-bottom: 13px;
 }
 
-.hiddenContent {
-    /* display: none; */
+span.trendingTitle{
+    font-family: 'highvoltage', sans-serif;
+    text-align:left;
+    float:left;
+    padding-left:15px;
+    font-size:22px;
 }
 
-.moviePoster {}
 
-
+.trendingFilmScore {
+    font-family: 'highvoltage', sans-serif;
+    color: rgb(235, 235, 235);
+    border-radius: 50%;
+    background-color: #31312C;
+    font-size: 17px;
+    height: 35px;
+    width: 35px;
+    min-height: 35px;
+    min-width: 35px;
+    padding: 6px;
+}
 
 header {
     background-color: var(--main-brand-color);
@@ -428,6 +442,7 @@ header {
     -moz-transition: 200ms ease 0.2s;
     -o-transition: 200ms ease 0.2s;
     transition: 200ms ease 0.2s;
+    border-left:solid 5px #ABC9F8;
 }
 
 .trendingMovieButton:hover {
@@ -438,18 +453,7 @@ header {
     border-radius: 15px;
 }
 
-.trendingFilmScore {
-    font-family: 'highvoltage', sans-serif;
-    color: rgb(235, 235, 235);
-    border-radius: 50%;
-    background-color: #31312C;
-    font-size: 17px;
-    height: 35px;
-    width: 35px;
-    min-height: 35px;
-    min-width: 35px;
-    padding: 6px;
-}
+
 
 .cinemaGridDetails {
     margin-top: -35px;
@@ -508,7 +512,7 @@ header {
     h1 {
         font-family: 'highvoltage';
         opacity: 0.3;
-        font-size: 2.7em;
+        font-size: 2.6em;
         text-align: left;
         border-bottom: dotted 3px rgba(51, 51, 51, 0.205);
         margin-bottom: 15px !important;
@@ -599,7 +603,7 @@ header {
     }
 
     p.heading2 {
-        font-size: 40px;
+        font-size: 34px;
     }
 
     p.renderedText1 {
