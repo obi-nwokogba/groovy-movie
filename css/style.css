@@ -177,7 +177,6 @@ footer {
     font-size: 1.3em;
     margin-top:0px;
     margin-left:-20px;
-
 }
 
 .majorHeading {
@@ -652,11 +651,27 @@ header {
     }
 }
 
+/* FIFTH BREAKPOINT */
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
 
+
+    #searchButton {
+        background: #2B5CAB;
+        padding: 15px;
+        color: white;
+        width: 90px;
+        border: none;
+        min-height: 45px;
+        font-size: 1.3em;
+        margin-left:-100px;
+        
+    }
+    
+
     #mainLogo {
         width: 230px;
+        margin-bottom:2px;
     }
 
     .navigationBar>button {
@@ -667,6 +682,8 @@ header {
 
         font-size: 1.8em;
     }
+
+    
 
     .renderedText1{
         max-width: 900px;

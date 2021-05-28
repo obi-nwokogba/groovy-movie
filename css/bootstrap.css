@@ -2121,11 +2121,11 @@ progress {
   height: 1.5em;
 }
 .form-control::-moz-placeholder {
-  color: #6c757d;
+  color: #C7DBFA;
   opacity: 1;
 }
 .form-control::placeholder {
-  color: #6c757d;
+  color: #C7DBFA;
   opacity: 1;
 }
 .form-control:disabled, .form-control[readonly] {
@@ -10753,3 +10753,27 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+
+
+/*
+
+BLUE SPECTRUM
+
+
+DARKEST
+#091222
+#112544
+#1A3766
+#224A89
+#2B5CAB
+#336FCD
+#3C81EF
+#5893F1
+#74A5F4
+#90B7F6
+#ABC9F8
+#C7DBFA
+#E3EDFD
+LIGHTEST
+
+*/

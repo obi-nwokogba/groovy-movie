@@ -29,6 +29,8 @@ function getAdditionalMovieInfo(inputMovieTitle, inputMovieYear) {
 
     // http://www.omdbapi.com/?t=matrix&y=1999&plot=full
 
+    // Since the OMDB single movie search returns more information fields, lets suppement our
+    // TMDB data with data from OMDB. This function returns a JS object with 9 fields.
     let OMDBMovieInformationObject = {
         title: "",
         cast: "",
@@ -41,16 +43,13 @@ function getAdditionalMovieInfo(inputMovieTitle, inputMovieYear) {
         boxoffice: ""
     };
 
-    let movieHTMLString = `<div class="movieDisplayContainer"><div class="movieDisplayLeftSide>`;
-    let omdbTitle, omdbCast, omdbDirector, omdbPlot, omdbLanguage, omdbImdbrating, omdbMetacriticrating, omdbAwards, omdbBoxoffice;
-
     $.ajax({
             url: `http://www.omdbapi.com/?t=matrix&y=1999&plot=full&i=tt3896198&apikey=f840d131`
         })
         .then(
             function (returnedData) {
 
-                /* VARIABLES 
+                /* VARIABLES TO save and render from JSON returned
                 1. omdbTitle, 
                 2. omdbCast,
                 3. omdbDirector, 
@@ -67,12 +66,12 @@ function getAdditionalMovieInfo(inputMovieTitle, inputMovieYear) {
                 OMDBMovieInformationObject.omdbPlot = returnedData['Plot'];
                 OMDBMovieInformationObject.omdbLanguage = returnedData['Language'];
                 OMDBMovieInformationObject.omdbImdbrating = returnedData['imdbRating'];
-                OMDBMovieInformationObject.omdbMetacriticrating = "";
-                OMDBMovieInformationObject.omdbAwards = "";
-                OMDBMovieInformationObject.omdbBoxoffice = "";
+                OMDBMovieInformationObject.omdbMetacriticrating = returnedData['imdbRating'];
+                OMDBMovieInformationObject.omdbAwards = returnedData['Awards'];
+                OMDBMovieInformationObject.omdbBoxoffice = returnedData['BoxOffice'];
 
+                //alert(OMDBMovieInformationObject.omdbImdbrating);
                 return OMDBMovieInformationObject;
-
             },
             function (error) {
                 console.log("bad request: ", error);
@@ -81,22 +80,7 @@ function getAdditionalMovieInfo(inputMovieTitle, inputMovieYear) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// TODO CURRENT
+// This function is called when someone seearches for a movie.
 function performSearch(event) {
 
     event.preventDefault();
@@ -129,6 +113,9 @@ function performSearch(event) {
 
                 let OMDBMovieInfo = getAdditionalMovieInfo(originalTitle4, releaseDate4);
 
+                //console.log(OMDBMovieInfo);
+                //alert(OMDBMovieInfo);
+
                 /* VARIABLES available in the OMDBMovieInfo 
                 1. omdbTitle, 
                 2. omdbCast,
@@ -160,13 +147,9 @@ function performSearch(event) {
                 <br /><br />
 
 
-                <br />
+                <br /><br />
 
-                <br />
 
-                
-                
-                
                 </div>
 
                 <div class="movieDisplayRightSide">
@@ -181,9 +164,7 @@ function performSearch(event) {
                     <div class="quickStatBox">
                     <p class="quickStatsHeading">Language</p>
                     <p id="renderYearBox" class="renderedText1">${originalLanguage4}</p>
-                   
                 </div>
-
                     <div class="quickStatBox">
                         <p class="quickStatsHeading">Genre</p>
                         <p id="renderGenreBox" class="renderedText1"></p>
@@ -198,7 +179,6 @@ function performSearch(event) {
             }
         );
 }
-
 
 function getMarquee(event) {
 
@@ -228,9 +208,6 @@ function getMarquee(event) {
             }
         );
 }
-
-
-
 
 function renderTrendingPage() {
 
@@ -265,7 +242,6 @@ function renderTrendingPage() {
                             
                             <p class="trendingText">
                             ${overview}</p></div>
-                            
                             </button>`;
                     }
                 }
@@ -277,8 +253,6 @@ function renderTrendingPage() {
             }
         );
 }
-
-
 
 
 function renderHomePage() {
